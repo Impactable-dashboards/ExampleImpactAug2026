@@ -4,148 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Northwind Commerce | Pipeline</title>
-<link rel="preconnect" href="https://fonts.example.com">
-<link rel="preconnect" href="https://fonts.example.com" crossorigin>
-<link href="https://fonts.example.com/css2?family=DM+Sans:ital,opsz,contact@example.com,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:contact@example.com;500;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a1628;--surface:rgba(17,29,51,.7);--line:rgba(189,215,255,.14);--line-strong:rgba(189,215,255,.28);
---navy:#1a3b6d;--blue:#0099d1;--teal:#00c4b3;--orange:#f4a261;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--yellow:#ffd166;
---txt:#e8f0fb;--txt-mid:#a8bcd8;--txt-dim:#6f88ad;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
-background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);background-attachment:fixed}
-.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
-header{padding:52px 0 30px}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
-h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
-h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
-.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
-.badges{display:flex;flex-wrap:wrap;gap:10px}
-.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
-.badge b{color:var(--txt);font-weight:700}
-.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
-.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
-background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
-.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
-.alert.g{border-color:rgba(34,197,94,.32);border-left-color:var(--green);background:linear-gradient(90deg,rgba(34,197,94,.08),rgba(17,29,51,.55))}
-.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
-.alert.w .tag{color:var(--orange)}.alert.g .tag{color:var(--green)}
-.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
-.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
-section{margin-top:56px}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
-.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
-h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
-.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
-.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
-.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
-.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
-.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
-.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
-.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
-/* system map */
-.sysmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--blue)}
-.col.tof{border-top-color:var(--purple)}.col.mof{border-top-color:var(--teal)}.col.bof{border-top-color:var(--red)}
-.col h3{margin:0 0 2px;font-size:17px;font-weight:700}
-.col .purpose{font-size:12.7px;color:var(--txt-dim);margin-bottom:12px;min-height:34px}
-.col .bud{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:3px}
-.col .bud small{font-size:11px;color:var(--txt-dim);font-weight:400}
-.col .budl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
-.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:7px}
-.pill .pn{font-size:12.6px;line-height:1.35}
-.pill .pv{font-family:var(--mono);font-size:11px;white-space:nowrap;color:var(--txt-mid)}
-.sb{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;font-weight:700;white-space:nowrap}
-.sb-on{background:rgba(0,153,209,.2);color:#4cc4f0;border:1px solid rgba(0,153,209,.45)}
-.sb-core{background:rgba(34,197,94,.2);color:var(--green);border:1px solid rgba(34,197,94,.5)}
-.sb-light{background:rgba(255,209,102,.16);color:var(--yellow);border:1px solid rgba(255,209,102,.4)}
-.sb-audit{background:rgba(244,162,97,.18);color:var(--orange);border:1px solid rgba(244,162,97,.45)}
-.sb-gap{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-.sb-next{background:rgba(167,139,250,.18);color:var(--purple);border:1px solid rgba(167,139,250,.45)}
-/* treemap */
-.tree{display:grid;grid-template-columns:repeat(12,1fr);gap:9px;grid-auto-rows:74px}
-.blk{border-radius:9px;padding:12px 13px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
-.blk .bn{font-size:12.6px;font-weight:600;line-height:1.25}
-.blk .bs{font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-dim)}
-.blk .ba{font-family:var(--mono);font-size:15px;font-weight:700}
-.blk.tof{background:linear-gradient(150deg,rgba(167,139,250,.22),rgba(17,29,51,.6))}
-.blk.mof{background:linear-gradient(150deg,rgba(0,196,179,.2),rgba(17,29,51,.6))}
-.blk.goog{background:linear-gradient(150deg,rgba(0,153,209,.2),rgba(17,29,51,.6))}
-.blk.bof{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.45)}
-.blk.new{background:rgba(167,139,250,.06);border:1px dashed rgba(167,139,250,.5)}
-/* bars */
-.bars{display:flex;flex-direction:column;gap:9px}
-.brow{display:grid;grid-template-columns:250px 1fr auto;gap:14px;align-items:center}
-.brow .bl{font-size:13px;color:var(--txt-mid)}
-.brow .bl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim)}
-.bt{height:28px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
-.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
-.bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
-.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
-.bf.z{background:none;min-width:0}
-.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
-.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:740px}
-th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:top}
-tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
-td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
-td.nm{font-weight:500;min-width:160px}td.sm{font-size:12.5px;color:var(--txt-mid)}
-tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
-.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
-.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
-.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
-.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
-.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
-.card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
-.card .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;padding:3px 8px;border-radius:5px;font-weight:700;float:right}
-/* roadmap */
-.road{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.ph{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--green)}
-.ph.next{border-top-color:var(--purple)}.ph.later{border-top-color:var(--blue)}
-.ph .pt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-.ph.next .pt{color:var(--purple)}.ph.later .pt{color:var(--blue)}
-.ph h4{margin:7px 0 3px;font-size:18px;font-weight:700}
-.ph .cost{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.ph ol{margin:0;padding-left:18px;color:var(--txt-mid);font-size:13.3px}
-.ph li{margin-bottom:8px}
-.ph li b{color:var(--txt)}
-.note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
-.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
-footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
-footer b{color:var(--txt-mid)}
-@media (max-width:900px){.sysmap,.road{grid-template-columns:1fr}.tree{grid-template-columns:repeat(6,1fr)}}
-@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}}
-@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}.tree{grid-template-columns:repeat(2,1fr)}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-
-/* ---- room nav ---- */
-.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);margin-bottom:0}
-.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
-.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--teal);white-space:nowrap;font-weight:700}
-.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
-.roomnav .links::-webkit-scrollbar{display:none}
-.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
-.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
-.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
-.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
-.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="report.css">
 </head>
 <body>
 <nav class="roomnav"><div class="inner"><span class="brand">Northwind Commerce / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html" class="on"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="09-strategy.html"><span class="n">09</span>Strategy</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Quarterly Diagnostic / Report 2 of 4</p>
+  <p class="eyebrow">Impact Report / Account Intelligence &amp; Pipeline</p>
   <h1>Account Intelligence and Pipeline Activation
     <span class="sub">Northwind Commerce: which accounts are ready for action, and what the next move is for each</span>
   </h1>
@@ -166,7 +35,7 @@ footer b{color:var(--txt-mid)}
   <h3>The funnel terminates at identification, and the engaged account list is contaminated.</h3>
   <p><b>Pipeline is partially available now.</b> The Pipedrive export has arrived and the three tier attribution model is built in section 02b. What it does <b>not</b> contain is outcomes: Deal Status is blank on 417 of 418 records and Contract Executed Date on all 418. So we can now say which leads were ad touched, but <b>not whether any of them closed</b>. Every figure here is lead level. None of it is revenue.</p>
   <p><b>The account list includes parties that cannot buy.</b> Northwind Commerce itself is the single highest scoring LinkedIn engaged account. Impactable appears as a dual signal account. Competitor 27, a named direct competitor from the April white space analysis, sits at very high engagement. Amazon sits at very high engagement. Nine distinct defects are documented in section 03 and every one inflates the ABM numbers upward.</p>
-  <p><b>Consequence:</b> no account list from this report should be handed to a sales motion until the suppression pass in section 06 is applied. Two named people in the identified set carry LinkedIn URLs belonging to different people.</p>
+  <p><b>Consequence:</b> no account list from this report should be handed to a sales motion until the exclusion pass in section 06 is applied. Two named people in the identified set carry LinkedIn URLs belonging to different people.</p>
 </div>
 
 <section>
@@ -281,7 +150,7 @@ footer b{color:var(--txt-mid)}
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:18px">
-    <div class="card opp"><span class="tag">The card for the EBR</span><h4>ICP Brand 66 is the only four signal account in the dataset</h4><p>On the ABM list, exposed to ads, visited the website, and present in the CRM carrying the LinkedIn Ads label. <b>Nothing else in 407 leads has all four.</b> If the CEO wants one example of the full funnel working end to end, this is it.</p></div>
+    <div class="card opp"><span class="tag">Full-funnel proof point</span><h4>ICP Brand 66 is the only four signal account in the dataset</h4><p>On the ABM list, exposed to ads, visited the website, and present in the CRM carrying the LinkedIn Ads label. <b>Nothing else in 407 leads has all four.</b> It is the single clearest example of the full funnel working end to end.</p></div>
     <div class="card watch"><span class="tag">Complicates a prior finding</span><h4>Enterprise accounts do appear in the CRM</h4><p>Enterprise Account 53, ICP Brand 103, ICP Brand 62, ICP Brand 63 and ICP Brand 73 are all 5,000+ employee companies and all appear as ad exposed CRM leads. Reports 1 and 2 both concluded enterprise does not convert. <b>Without deal status we cannot tell whether these are real opportunities or noise</b>, so the enterprise reduction case is now weaker than stated and should be softened until outcomes arrive.</p></div>
     <div class="card crit"><span class="tag">Coverage limit</span><h4>The join sees about half the delivery</h4><p>The ABM ad activity export resolves <b>$13,414 of $24,411 spend, 3,416 of 6,421 clicks and 157,210 of 230,251 impressions</b>. Tier 4 is therefore an upper bound. A non match is not proof that a company was never served an ad.</p></div>
   </div>
@@ -289,22 +158,22 @@ footer b{color:var(--txt-mid)}
 </section>
 <section>
   <div class="sec-head"><span class="sec-num">03</span><h2>Data hygiene defects</h2></div>
-  <p class="sec-sub">Nine defects found while assembling this report. All of them bias the account intelligence upward, which means every ABM figure reported to date is flattering rather than conservative.</p>
+  <p class="sec-sub">Nine defects found while assembling this report. All of them bias the account intelligence upward, which means every ABM figure is biased upward until these are excluded.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>#</th><th>Defect</th><th>Evidence</th><th>Consequence</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td class="nm">Client self engagement</td><td class="sm">Northwind Commerce scores 20,706 with 969 organic engagements, ranking first overall.</td><td class="sm">Employees top their own leaderboard. Suppress.</td></tr>
+      <tr><td class="num">1</td><td class="nm">Client self engagement</td><td class="sm">Northwind Commerce scores 20,706 with 969 organic engagements, ranking first overall.</td><td class="sm">Employees top their own leaderboard. Exclude.</td></tr>
       <tr><td class="num">2</td><td class="nm">Duplicate entity, same name</td><td class="sm">A second company resolves to Northwind Commerce on example.com, 10 sessions, with a named CTO.</td><td class="sm">Name matching merges two companies.</td></tr>
-      <tr><td class="num">3</td><td class="nm">Agency contamination</td><td class="sm">Impactable scores 443 with 28 organic engagements, flagged dual signal.</td><td class="sm">Our activity counted as client demand.</td></tr>
+      <tr><td class="num">3</td><td class="nm">Agency contamination</td><td class="sm">Impactable scores 443 with 28 organic engagements, flagged dual signal.</td><td class="sm">Agency engagement counted as client demand.</td></tr>
       <tr><td class="num">4</td><td class="nm">Direct competitors engaged</td><td class="sm">Competitor 27 2,680 at very high tier. Competitor 1 117 impressions, 38 organic engagements, very high. Plus Competitor 9 and Competitor 10 with named executives.</td><td class="sm">Competitors inflate the top tier that carries the ABM proof.</td></tr>
-      <tr><td class="num">5</td><td class="nm">Marketplace operator and agencies</td><td class="sm">Amazon at very high, 6,250. Plus Competitor 13, assembly, Competitor 24, Competitor 25, Competitor 28, Competitor 30, Competitor 29, Red Moon, Kyn.</td><td class="sm">Non buyers counted as prospects.</td></tr>
+      <tr><td class="num">5</td><td class="nm">Marketplace operator and agencies</td><td class="sm">Amazon at very high, 6,250. Plus Competitor 13, Competitor 33, Competitor 24, Competitor 25, Competitor 28, Competitor 30, Competitor 29, Competitor 31, Competitor 32.</td><td class="sm">Non buyers counted as prospects.</td></tr>
       <tr><td class="num">6</td><td class="nm">Wrong person linked</td><td class="sm">Two identified records carry LinkedIn URLs belonging to different individuals.</td><td class="sm">Outreach reaches the wrong person.</td></tr>
-      <tr><td class="num">7</td><td class="nm">Industry mislabelling</td><td class="sm">Enterprise Account 53, ICP Brand 92 and International Paper all labelled Automotive. ICP Brand 80, the ICP Brand 89 brand, labelled Building materials.</td><td class="sm">Any cut using website enrichment needs rebuilding.</td></tr>
-      <tr><td class="num">8</td><td class="nm">Non US entities present</td><td class="sm">Enterprise Account 37, Enterprise Account 32, ICP Brand 62 APAC, Enterprise Account 41 India, despite 100% US delivery.</td><td class="sm">Likely global parent resolution. Confirm before reporting reach.</td></tr>
-      <tr><td class="num">9</td><td class="nm">Model disagreement</td><td class="sm">Account model reports 830 identified people, prospect model reports 1,815, same period.</td><td class="sm">Pick one definition before either travels.</td></tr>
+      <tr><td class="num">7</td><td class="nm">Industry mislabelling</td><td class="sm">Enterprise Account 53, ICP Brand 92 and Enterprise Account 80 all labelled Automotive. ICP Brand 80, the ICP Brand 89 brand, labelled Building materials.</td><td class="sm">Any cut using website enrichment needs rebuilding.</td></tr>
+      <tr><td class="num">8</td><td class="nm">Non US entities present</td><td class="sm">Enterprise Account 37, Enterprise Account 32, ICP Brand 62, Enterprise Account 41 India, despite 100% US delivery.</td><td class="sm">Likely global parent resolution. Confirm before reporting reach.</td></tr>
+      <tr><td class="num">9</td><td class="nm">Model disagreement</td><td class="sm">Account model reports 830 identified people, prospect model reports 1,815, same period.</td><td class="sm">Pick one definition before either is reported.</td></tr>
     </tbody>
   </table></div>
-  <p class="note">All nine bias account intelligence upward, which means every ABM figure reported to date is flattering rather than conservative. Suppression list in section 06.</p>
+  <p class="note">All nine bias account intelligence upward, which means every ABM figure is biased upward until these are excluded. Exclusion list in section 06.</p>
   </section>
 
 <section>
@@ -316,7 +185,7 @@ footer b{color:var(--txt-mid)}
       <p class="mm">7,274 impressions &nbsp;/&nbsp; 264 clicks &nbsp;/&nbsp; 2 leads &nbsp;/&nbsp; <b style="color:var(--orange)">18 of 30 at 10,001+ employees</b></p>
       <div class="chips">
         <span class="chip ent">Enterprise Account 53 Professional</span><span class="chip ent">Enterprise Account 54</span><span class="chip ent">Enterprise Account 56</span>
-        <span class="chip ent">Procter &amp; Gamble</span><span class="chip ent">Enterprise Account 13</span><span class="chip ent">Enterprise Account 27</span>
+        <span class="chip ent">Enterprise Account 79</span><span class="chip ent">Enterprise Account 13</span><span class="chip ent">Enterprise Account 27</span>
         <span class="chip ent">Enterprise Account 63</span><span class="chip ent">Enterprise Account 17</span><span class="chip ent">Enterprise Account 65</span>
         <span class="chip ent">Enterprise Account 62</span><span class="chip ent">Enterprise Account 57</span><span class="chip ent">Enterprise Account 36</span>
         <span class="chip ent">Enterprise Account 74</span><span class="chip ent">Enterprise Account 37</span><span class="chip ent">Enterprise Account 32</span>
@@ -334,10 +203,10 @@ footer b{color:var(--txt-mid)}
         <span class="chip icp">ICP Brand 39</span><span class="chip icp">ICP Brand 72</span><span class="chip icp">ICP Brand 105</span>
         <span class="chip icp">ICP Brand 70</span><span class="chip icp">ICP Brand 45</span><span class="chip icp">ICP Brand 34</span>
         <span class="chip icp">ICP Brand 55</span><span class="chip icp">ICP Brand 28</span><span class="chip icp">ICP Brand 35</span>
-        <span class="chip icp">ICP Brand 40</span><span class="chip icp">ICP Brand 82</span><span class="chip icp">the CEO</span>
-        <span class="chip icp">I and love and you</span><span class="chip">Competitor 13</span><span class="chip">assembly</span>
+        <span class="chip icp">ICP Brand 40</span><span class="chip icp">ICP Brand 82</span><span class="chip icp">ICP Brand 114</span>
+        <span class="chip icp">ICP Brand 113</span><span class="chip">Competitor 13</span><span class="chip">Competitor 33</span>
       </div>
-      <p class="do" style="margin-top:14px;padding-top:13px;border-top:1px solid var(--line);color:var(--txt-mid);font-size:13.3px">Nineteen of the thirty are true ICP consumer, beauty and wellness brands in the 11 to 1,000 employee range. Only one account, the agency assembly, persisted from June's top 30.</p>
+      <p class="do" style="margin-top:14px;padding-top:13px;border-top:1px solid var(--line);color:var(--txt-mid);font-size:13.3px">Nineteen of the thirty are true ICP consumer, beauty and wellness brands in the 11 to 1,000 employee range. Only one account, the agency Competitor 33, persisted from June's top 30.</p>
     </div>
   </div>
   <div class="cards" style="margin-top:15px">
@@ -378,7 +247,7 @@ footer b{color:var(--txt-mid)}
       <h4>Hot, deeper ABM</h4>
       <p class="cnt">19 accounts &nbsp;/&nbsp; the July ICP cohort</p>
       <ul>
-        <li>ICP Brand 54, ICP Brand 81, ICP Brand 51, ICP Brand 3, ICP Brand 61, ICP Brand 23, ICP Brand 39, ICP Brand 72, ICP Brand 105, ICP Brand 70, ICP Brand 45, ICP Brand 34, ICP Brand 55, ICP Brand 28, ICP Brand 35, ICP Brand 40, ICP Brand 82, the CEO, I and love and you.</li>
+        <li>ICP Brand 54, ICP Brand 81, ICP Brand 51, ICP Brand 3, ICP Brand 61, ICP Brand 23, ICP Brand 39, ICP Brand 72, ICP Brand 105, ICP Brand 70, ICP Brand 45, ICP Brand 34, ICP Brand 55, ICP Brand 28, ICP Brand 35, ICP Brand 40, ICP Brand 82, ICP Brand 114, ICP Brand 113.</li>
       </ul>
       <p class="do"><b>Do:</b> build a dedicated matched audience from this list, run the wellness and cosmetics creative that already carries the best rates, and put a bottom funnel offer behind it. None of these has produced a lead yet, so this is a conversion test, not a retargeting formality.</p>
     </div>
@@ -394,15 +263,15 @@ footer b{color:var(--txt-mid)}
       <p class="do"><b>Do:</b> confirm buying authority and whether marketplace management is already in house before any spend is directed here.</p>
     </div>
     <div class="tier sup">
-      <h4>Suppress</h4>
+      <h4>Exclude</h4>
       <p class="cnt">13+ named entities &nbsp;/&nbsp; apply before next list build</p>
       <ul>
-        <li>Northwind Commerce, both entities, including the example.com duplicate.</li>
+        <li>Northwind Commerce, both entities, including the duplicate record.</li>
         <li>Impactable.</li>
         <li>Amazon.</li>
-        <li>Competitor 27, Competitor 13, assembly, Competitor 24, Competitor 25, Competitor 28, Competitor 30, Competitor 29, Competitor 5, Competitor 16.</li>
+        <li>Competitor 27, Competitor 13, Competitor 33, Competitor 24, Competitor 25, Competitor 28, Competitor 30, Competitor 29, Competitor 5, Competitor 16.</li>
       </ul>
-      <p class="do"><b>Do:</b> add to the exclusion list alongside the enterprise work already under way, then rebuild the engaged account counts. Expect the headline account numbers to fall, and say so before they do.</p>
+      <p class="do"><b>Do:</b> add to the exclusion list alongside the enterprise work already under way, then rebuild the engaged account counts. Expect the headline account numbers to fall once applied.</p>
     </div>
   </div>
 </section>
@@ -442,7 +311,7 @@ footer b{color:var(--txt-mid)}
           <td class="seg">Self, competitor and agency contamination</td>
           <td>Nine documented defects including the client's own company ranking first and a direct competitor at very high engagement.</td>
           <td class="num">Inflates every<br>ABM figure</td>
-          <td>Apply the suppression list in section 06 and restate the counts.</td>
+          <td>Apply the exclusion list in section 06 and restate the counts.</td>
         </tr>
         <tr>
           <td class="seg">Named list not safe to hand over</td>
@@ -459,16 +328,15 @@ footer b{color:var(--txt-mid)}
   <div class="sec-head"><span class="sec-num">08</span><h2>Action plan</h2></div>
   <p class="sec-sub">Six moves, ordered. Two are gated on the Pipedrive export and are marked rather than presented as ready.</p>
   <div class="cards">
-    <div class="card crit"><span class="tag">1 / this week</span><h4>Apply the suppression list and restate</h4><p>Remove both Northwind Commerce entities, Impactable, Amazon and the ten agency and competitor accounts. Rebuild engaged account counts and tell the client the numbers moved and why, before the next report shows a drop.</p></div>
+    <div class="card crit"><span class="tag">1 / this week</span><h4>Apply the exclusion list and restate</h4><p>Remove both Northwind Commerce entities, Impactable, Amazon and the ten agency and competitor accounts. Rebuild engaged account counts and tell the client the numbers moved and why, before the next report shows a drop.</p></div>
     <div class="card crit"><span class="tag">2 / this week</span><h4>Cap the low tier and redirect</h4><p>240 accounts are taking a third of delivery for one lead. Frequency cap and exclude, then push the recovered budget into the 482 very high engagement accounts converting at 2.89%.</p></div>
     <div class="card opp"><span class="tag">3 / this week</span><h4>Build the July ICP audience as a named matched list</h4><p>Nineteen genuine ICP brands surfaced in July. Load them as a matched audience, run the cosmetics and wellness creative that already performs, and put a real bottom funnel offer behind it.</p></div>
     <div class="card opp"><span class="tag">4 / done</span><h4>Three tier attribution model is built</h4><p>See section 02b. Joined on email domain rather than company name, because only 2 of 17 LinkedIn labelled leads carry a company name. 17 click verified, 28 impression and click verified, 82 ecosystem. <b>Lead with the 17 and the ICP Brand 108 card.</b></p></div>
-    <div class="card crit"><span class="tag">5 / answered, badly</span><h4>10 of the 17 leads have no company at all</h4><p>Not a company size problem as Report 1 guessed. <b>Ten of seventeen arrived with a personal email address and no company name.</b> Six resolve to real brands: ICP Brand 99 twice, ICP Brand 78, ICP Brand 79, ICP Brand 108, ICP Brand 67. The defensible qualified count is closer to <b>6</b> than 17.</p></div>
+    <div class="card crit"><span class="tag">5 / answered, badly</span><h4>10 of the 17 leads have no company at all</h4><p>Not a company size problem as the audience analysis guessed. <b>Ten of seventeen arrived with a personal email address and no company name.</b> Six resolve to real brands: ICP Brand 99 twice, ICP Brand 78, ICP Brand 79, ICP Brand 108, ICP Brand 67. The defensible qualified count is closer to <b>6</b> than 17.</p></div>
     <div class="card opp"><span class="tag">6 / next 30 days</span><h4>Fix website identity scoring</h4><p>Exclude careers traffic, rebuild account scores, and reconcile the 830 against 1,815 people discrepancy. Until then the website layer adds noise to the ABM picture rather than intent.</p></div>
   </div>
 </section>
 
-<div class="internal">Internal diagnostic. Report 2 of 4 in the quarterly architecture, feeding the Impact Report account intelligence and named accounts sections. Contains suppression judgements about the client's own company, Impactable, and named competitors. Not for client distribution without review.</div>
 
 <footer>
   <div><b>Client</b><br>Northwind Commerce</div>
@@ -527,9 +395,9 @@ drawLadder();
 
 /* ---------- leaderboard ---------- */
 const B={both:'<span class="b b-both">Dual signal</span>',li:'<span class="b b-li">LinkedIn</span>',web:'<span class="b b-web">Website</span>'};
-const F={icp:'<span class="b b-icp">ICP</span>',no:'<span class="b b-no">Non buyer</span>',sup:'<span class="b b-sup">Suppress</span>'};
+const F={icp:'<span class="b b-icp">ICP</span>',no:'<span class="b b-no">Non buyer</span>',sup:'<span class="b b-sup">Exclude</span>'};
 const DATA={
- dual:{label:'Dual signal',note:'Engaged through both LinkedIn ads and the website. Score is the DemandSense LinkedIn engagement score. Sorted by score. Suppression flags applied per section 06.',
+ dual:{label:'Dual signal',note:'Engaged through both LinkedIn ads and the website. Score is the DemandSense LinkedIn engagement score. Sorted by score. Exclusion flags applied per section 06.',
   cols:[['co','Company','seg'],['ind','Industry','t'],['score','LI score','n'],['impr','LI impressions','n'],['clicks','LI clicks','n'],['sess','Sessions','n'],['fit','Fit','h']],
   rows:[
    ["Enterprise Account 53",'cosmetics, labelled Automotive',6975,2967,113,2,F.no],
@@ -558,19 +426,19 @@ const DATA={
    ['Enterprise Account 15','hospital and health care',16,3,0,4,F.no],
    ['Enterprise Account 5','pharmaceuticals',6,0,0,2,F.no],
    ['Enterprise Account 19','accounting',5,0,0,2,F.no],
-   ['The Hive Consulting','program development',3,0,0,2,F.no]]},
+   ['Enterprise Account 82','program development',3,0,0,2,F.no]]},
 
  jul:{label:'July ICP cohort',note:'Top engaged accounts in July by clicks, restricted to the genuine ICP. Zero accounts at 10,001+ employees appeared in July. No leads yet from this cohort, which makes it a conversion test rather than a retargeting formality.',
   cols:[['co','Company','seg'],['ind','Industry','t'],['size','Employees','t'],['impr','Impressions','n'],['clicks','Clicks','n'],['ctr','CTR','p'],['fit','Fit','h']],
   rows:[
-   ['the CEO','consumer goods','201-500',145,6,4.14,F.icp],
+   ['ICP Brand 114','consumer goods','201-500',145,6,4.14,F.icp],
    ['ICP Brand 3','cosmetics','501-1000',98,5,5.10,F.icp],
    ['ICP Brand 72','consumer goods','51-200',110,4,3.64,F.icp],
    ['ICP Brand 45','cosmetics','501-1000',129,4,3.10,F.icp],
    ['ICP Brand 23','health, wellness and fitness','51-200',150,4,2.67,F.icp],
    ['ICP Brand 34','cosmetics','51-200',18,4,22.22,F.icp],
    ['ICP Brand 51','cosmetics','501-1000',179,3,1.68,F.icp],
-   ['I and love and you pet','consumer goods','11-50',212,3,1.42,F.icp],
+   ['ICP Brand 113','consumer goods','11-50',212,3,1.42,F.icp],
    ['ICP Brand 2','health, wellness and fitness','501-1000',92,3,3.26,F.icp],
    ['ICP Brand 70','apparel and fashion','201-500',102,3,2.94,F.icp],
    ['ICP Brand 61','health, wellness and fitness','51-200',142,3,2.11,F.icp],
@@ -583,7 +451,7 @@ const DATA={
    ['ICP Brand 82','design','501-1000',117,3,2.56,F.icp],
    ['ICP Brand 40','retail','11-50',67,3,4.48,F.icp],
    ['Competitor 13','consumer goods','201-500',88,3,3.41,F.sup],
-   ['assembly','internet','501-1000',138,3,2.17,F.sup],
+   ['Competitor 33','internet','501-1000',138,3,2.17,F.sup],
    ['Competitor 29','marketing and advertising','201-500',41,3,7.32,F.sup],
    ['Competitor 5','marketing and advertising','51-200',17,3,17.65,F.sup],
    ['Competitor 16','unknown','Unknown',20,3,15.00,F.sup]]},
@@ -599,11 +467,11 @@ const DATA={
    ['Enterprise Account 56','retail','10001+',306,11,0,F.no],
    ['Enterprise Account 8','consumer goods','10001+',677,11,0,F.no],
    ['Enterprise Account 27','food production','10001+',363,10,0,F.no],
-   ['Nutrition and Health by Enterprise Account 63','food and beverages','10001+',177,9,0,F.no],
+   ['Enterprise Account 63','food and beverages','10001+',177,9,0,F.no],
    ['Enterprise Account 17','consumer goods','10001+',287,9,0,F.no],
    ['Enterprise Account 65','consumer goods','10001+',174,8,0,F.no],
    ['Enterprise Account 62','retail','10001+',276,8,1,F.no],
-   ['ICP Brand 62 APAC','consumer goods','1001-5000',244,7,0,F.no],
+   ['ICP Brand 62','consumer goods','1001-5000',244,7,0,F.no],
    ['Enterprise Account 37','cosmetics','10001+',171,7,0,F.no],
    ['ICP Brand 92','cosmetics','1001-5000',139,7,0,F.icp],
    ['Enterprise Account 9','consumer goods','5001-10000',273,7,0,F.no],
@@ -615,9 +483,9 @@ const DATA={
    ['Enterprise Account 38','retail','11-50',94,4,0,F.no],
    ['Enterprise Account 32','cosmetics','10001+',83,4,0,F.no],
    ['Enterprise Account 4','retail','201-500',67,4,0,F.icp],
-   ['Delice ICP Brand 91','food production','10001+',171,4,0,F.no],
+   ['ICP Brand 91','food production','10001+',171,4,0,F.no],
    ['Enterprise Account 48','retail','201-500',46,4,0,F.icp],
-   ['assembly','internet','501-1000',132,4,0,F.sup],
+   ['Competitor 33','internet','501-1000',132,4,0,F.sup],
    ['Enterprise Account 36','food and beverages','10001+',220,4,0,F.no],
    ['Enterprise Account 23','consumer goods','1001-5000',36,4,0,F.icp],
    ['Enterprise Account 11','consumer goods','201-500',64,4,0,F.icp]]},
@@ -628,32 +496,32 @@ const DATA={
    ['Contact 24','Senior Marketing Product Manager','ICP Brand 52, ICP Brand 89',3,4,F.icp],
    ['Contact 27','President and Owner','ICP Brand 96, wholesale',4,32,F.icp],
    ['Contact 9','not resolved','not resolved',9,9,F.no],
-   ['Contact 29','Professor of Ophthalmology','Duke University School of Medicine',8,8,F.no],
-   ['the VP Growth Klinedinst','Safety Tech','New Hanover Regional Medical Center',7,16,F.no],
+   ['Contact 29','Professor of Ophthalmology','a university medical school',8,8,F.no],
+   ['Contact 54','Safety Tech','a regional medical center',7,16,F.no],
    ['Contact 17','Chief Technology Officer','Northwind Commerce, duplicate entity',7,8,F.sup],
    ['Contact 6','not resolved','not resolved',6,21,F.no],
-   ['Contact 51','VP FP&A and Project Control','Procentrix',5,18,F.no],
+   ['Contact 51','VP FP&A and Project Control','an IT services firm',5,18,F.no],
    ['Contact 21','Senior IT Analyst','Enterprise Account 2',5,35,F.no],
-   ['Contact 46','Manager','Clampitt Paper',5,5,F.no],
+   ['Contact 46','Manager','a paper distributor',5,5,F.no],
    ['Contact 38','Public Relations Consultant','Competitor 17',4,50,F.no],
-   ['Contact 32','Division Manager','WSSC Water',4,4,F.no],
-   ['Contact 47','Bilingual Education Specialist','Parents Helping Parents',4,18,F.no],
+   ['Contact 32','Division Manager','a water utility',4,4,F.no],
+   ['Contact 47','Bilingual Education Specialist','a non profit',4,18,F.no],
    ['Contact 48','Director of Marketing','Enterprise Account 51',4,4,F.no],
-   ['Contact 5','Registered Nurse','Crystal Clinic',4,19,F.no],
-   ['Contact 39','Massage Therapist','Infinity Bodyworks',4,21,F.no],
-   ['Contact 1','Interpreter','Kelly Services',4,33,F.no],
-   ['Bernadine Soriano','VP, Charlesbank Capital Partners','not resolved',4,8,F.no],
-   ['Contact 42','Specialty Sales Representative','IBSA USA',3,23,F.no],
-   ['Contact 8','School Aide, Special Needs','Rusk ISD',3,3,F.sup],
+   ['Contact 5','Registered Nurse','a health clinic',4,19,F.no],
+   ['Contact 39','Massage Therapist','a wellness studio',4,21,F.no],
+   ['Contact 1','Interpreter','a staffing firm',4,33,F.no],
+   ['Contact 53','VP, a private equity firm','not resolved',4,8,F.no],
+   ['Contact 42','Specialty Sales Representative','a pharmaceuticals firm',3,23,F.no],
+   ['Contact 8','School Aide, Special Needs','a school district',3,3,F.sup],
    ['Contact 37','Financial services contractor','not resolved',3,14,F.sup],
-   ['Contact 12','Partner','Orrick Herrington and Sutcliffe',3,10,F.no],
-   ['Contact 52','Partner','Shook Hardy and Bacon',3,4,F.no],
+   ['Contact 12','Partner','a law firm',3,10,F.no],
+   ['Contact 52','Partner','a law firm',3,4,F.no],
    ['Contact 18','Lead Platform Application Engineer','Enterprise Account 72',3,22,F.no],
    ['Contact 13','Assistant Manager','Enterprise Account 59',3,3,F.no],
-   ['Contact 3','Associate Teaching Professor','UC San Diego',3,9,F.no],
-   ['Contact 11','Teacher','Bay District Schools',3,3,F.no],
-   ['Contact 30','Treatment Technician II','City of Arlington',3,11,F.no],
-   ['Contact 41','Multisite Leasing Professional','MAA',3,3,F.no],
+   ['Contact 3','Associate Teaching Professor','a university',3,9,F.no],
+   ['Contact 11','Teacher','a school district',3,3,F.no],
+   ['Contact 30','Treatment Technician II','a municipal government',3,11,F.no],
+   ['Contact 41','Multisite Leasing Professional','a property management firm',3,3,F.no],
    ['Contact 23','Dentist','not resolved',3,9,F.no]]}
 };
 const ORDER=['dual','jul','jun','people'];
