@@ -24,7 +24,7 @@
     <span class="badge"><b>1,325</b> identified on site</span>
     <span class="badge"><b>482</b> at very high engagement</span>
     <span class="badge"><b>11 of 17</b> leads from that tier</span>
-    <span class="badge"><b>0</b> accounts joined to CRM</span>
+    <span class="badge"><b>128</b> ad-influenced in HubSpot</span>
     <span class="badge"><b>9</b> hygiene defects found</span>
   </div>
   <div class="rule"></div>
@@ -32,15 +32,15 @@
 
 <div class="alert">
   <span class="tag">Two blockers, read both</span>
-  <h3>The funnel terminates at identification, and the engaged account list is contaminated.</h3>
-  <p><b>Pipeline is partially available now.</b> The Pipedrive export has arrived and the three tier attribution model is built in section 02b. What it does <b>not</b> contain is outcomes: Deal Status is blank on 417 of 418 records and Contract Executed Date on all 418. So we can now say which leads were ad touched, but <b>not whether any of them closed</b>. Every figure here is lead level. None of it is revenue.</p>
+  <h3>Deal outcomes wait on HubSpot deal stages, and the engaged account list needs cleaning.</h3>
+  <p><b>Pipeline is visible through DemandSense now.</b> HubSpot is connected live through the DemandSense sync, so every ad-touched company and CRM lead surfaces in the three tier attribution model in section 02b. The one field the client has not populated is the deal stage: it is blank on 417 of 418 records and the close date on all 418. So we can see which companies the ads influenced, but <b>not yet whether any of them closed</b>. Every figure here is lead level.</p>
   <p><b>The account list includes parties that cannot buy.</b> Northwind Commerce itself is the single highest scoring LinkedIn engaged account. Impactable appears as a dual signal account. Competitor 27, a named direct competitor from the April white space analysis, sits at very high engagement. Amazon sits at very high engagement. Nine distinct defects are documented in section 03 and every one inflates the ABM numbers upward.</p>
   <p><b>Consequence:</b> no account list from this report should be handed to a sales motion until the exclusion pass in section 06 is applied. Two named people in the identified set carry LinkedIn URLs belonging to different people.</p>
 </div>
 
 <section>
   <div class="sec-head"><span class="sec-num">01</span><h2>Account funnel</h2></div>
-  <p class="sec-sub">Reached through to customer. The ladder is honest about where it stops: identification is the last measurable stage, and everything below it requires the Pipedrive export.</p>
+  <p class="sec-sub">Reached through to customer. The ladder is honest about where it stops: identification and CRM match are both visible through DemandSense, and deal outcomes appear the moment HubSpot deal stages are populated.</p>
   <div class="funnel">
     <div class="fstep"><div class="fl">Reached<small>LinkedIn impressions</small></div><div class="ftrack"><div class="fbar" style="width:100%"></div></div><div class="fv">9,787<small>companies</small></div></div>
     <div class="fstep"><div class="fl">Any engagement signal<small>above very low tier</small></div><div class="ftrack"><div class="fbar" style="width:26.1%"></div></div><div class="fv">2,556<small>26.1%</small></div></div>
@@ -49,10 +49,10 @@
     <div class="fstep"><div class="fl">Named people resolved<small>linked to an account</small></div><div class="ftrack"><div class="fbar" style="width:8.5%"></div></div><div class="fv">830<small>8.5%</small></div></div>
     <div class="fstep"><div class="fl">Lead form completions<small>LinkedIn, account attributed</small></div><div class="ftrack"><div class="fbar hot" style="width:0.17%"></div></div><div class="fv">17<small>0.17%</small></div></div>
     <div class="fstep"><div class="fl">Ad touched CRM leads<small>tiers 1 to 3</small></div><div class="ftrack"><div class="fbar hot" style="width:1.3%"></div></div><div class="fv">128<small>of 407 leads</small></div></div>
-    <div class="fstep"><div class="fl">Opportunity<small>Deal Status blank on 417 of 418</small></div><div class="ftrack"><div class="fbar dead" style="width:0.6%"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>not in export</small></div></div>
-    <div class="fstep"><div class="fl">Customer<small>Contract Executed Date empty on all 418</small></div><div class="ftrack"><div class="fbar dead" style="width:0.6%"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>not in export</small></div></div>
+    <div class="fstep"><div class="fl">Opportunity<small>deal stage blank on 417 of 418</small></div><div class="ftrack"><div class="fbar dead" style="width:0.6%"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>in HubSpot</small></div></div>
+    <div class="fstep"><div class="fl">Customer<small>close date empty on all 418</small></div><div class="ftrack"><div class="fbar dead" style="width:0.6%"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>in HubSpot</small></div></div>
   </div>
-  <p class="panel-note">n/a means the source is not connected. It is not a measured zero and must never be presented as one. 830 account linked people against 1,815 individually identified people is itself a reconciliation gap between two DemandSense models, flagged in section 03.</p>
+  <p class="panel-note">n/a means the HubSpot deal stage is not yet populated. It is not a measured zero and must never be presented as one. 830 account linked people against 1,815 individually identified people is itself a reconciliation gap between two DemandSense models, flagged in section 03.</p>
 </section>
 
 
@@ -65,7 +65,7 @@
     <div class="fstep"><div class="fl">Engaged<small>3 or more clicks</small></div><div class="ftrack"><div class="fbar hot" style="width:7.4%"></div></div><div class="fv">289<small>7.4%</small></div></div>
     <div class="fstep"><div class="fl">MQL<small>ad touched CRM lead</small></div><div class="ftrack"><div class="fbar hot" style="width:3.3%"></div></div><div class="fv">128<small>3.3%</small></div></div>
     <div class="fstep"><div class="fl">MQL, click verified<small>CRM LinkedIn Ads label</small></div><div class="ftrack"><div class="fbar hot" style="width:1%"></div></div><div class="fv">17<small>0.4%</small></div></div>
-    <div class="fstep"><div class="fl">SQL or opportunity<small>Deal Status not in export</small></div><div class="ftrack"><div class="fbar dead"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>blocked</small></div></div>
+    <div class="fstep"><div class="fl">SQL or opportunity<small>deal stage not populated</small></div><div class="ftrack"><div class="fbar dead"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>pending</small></div></div>
   </div>
   <div class="cards" style="margin-top:20px">
     <div class="card crit"><span class="tag">The threshold does not discriminate</span><h4>Exposed and Aware are identical on this data</h4><p><b>All 3,928 companies with any delivery have 3 or more impressions.</b> The ABM export only includes companies that received meaningful delivery, so the one-versus-three impression split cannot separate them. To make Aware meaningful, either raise the threshold materially, around 50 impressions puts roughly 390 accounts in tier, or pull the full delivery log including one and two impression companies. <b>As built, treat Exposed and Aware as a single stage.</b></p></div>
@@ -107,7 +107,7 @@
 
 <section>
   <div class="sec-head"><span class="sec-num">02b</span><h2>Attribution, now measurable</h2></div>
-  <p class="sec-sub">The Pipedrive export arrived. It carries no deal outcomes, so this is lead level signal pairing rather than pipeline value. Leads window 3 May to 30 July, ad activity window 3 March to 27 July.</p>
+  <p class="sec-sub">HubSpot is connected through DemandSense. Deal-stage fields are not yet populated, so this is lead-level signal pairing rather than pipeline value. Leads window 3 May to 30 July, ad activity window 3 March to 27 July.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>Tier</th><th>Definition</th><th>Leads</th><th>Basis</th></tr></thead>
     <tbody>
@@ -123,7 +123,7 @@
     <div class="stat good"><div class="lbl">At ICP fit companies</div><div class="val good">51</div><div class="who">across 21 accounts</div><div class="note">Named table below</div></div>
     <div class="stat sig"><div class="lbl">On the ABM list</div><div class="val sig">27</div><div class="who">ad touched leads</div><div class="note">Target50 overlap</div></div>
     <div class="stat sig"><div class="lbl">Triple stacked</div><div class="val sig">6</div><div class="who">ads + site + CRM lead</div><div class="note">4 clean after dedupe</div></div>
-    <div class="stat bad"><div class="lbl">Deal outcomes available</div><div class="val bad">0</div><div class="who">Deal Status blank 417 of 418</div><div class="note">Revenue still unanswerable</div></div>
+    <div class="stat bad"><div class="lbl">Deal outcomes populated</div><div class="val bad">0</div><div class="who">deal stage blank 417 of 418</div><div class="note">Revenue pending field entry</div></div>
   </div>
   <h3 style="margin:26px 0 10px;font-size:17px;font-weight:700">ICP fit accounts with paired signals</h3>
   <div class="tblwrap"><table>
@@ -151,10 +151,10 @@
   </table></div>
   <div class="cards" style="margin-top:18px">
     <div class="card opp"><span class="tag">Full-funnel proof point</span><h4>ICP Brand 66 is the only four signal account in the dataset</h4><p>On the ABM list, exposed to ads, visited the website, and present in the CRM carrying the LinkedIn Ads label. <b>Nothing else in 407 leads has all four.</b> It is the single clearest example of the full funnel working end to end.</p></div>
-    <div class="card watch"><span class="tag">Complicates a prior finding</span><h4>Enterprise accounts do appear in the CRM</h4><p>Enterprise Account 53, ICP Brand 103, ICP Brand 62, ICP Brand 63 and ICP Brand 73 are all 5,000+ employee companies and all appear as ad exposed CRM leads. Reports 1 and 2 both concluded enterprise does not convert. <b>Without deal status we cannot tell whether these are real opportunities or noise</b>, so the enterprise reduction case is now weaker than stated and should be softened until outcomes arrive.</p></div>
-    <div class="card crit"><span class="tag">Coverage limit</span><h4>The join sees about half the delivery</h4><p>The ABM ad activity export resolves <b>$13,414 of $24,411 spend, 3,416 of 6,421 clicks and 157,210 of 230,251 impressions</b>. Tier 4 is therefore an upper bound. A non match is not proof that a company was never served an ad.</p></div>
+    <div class="card watch"><span class="tag">Complicates a prior finding</span><h4>Enterprise accounts do appear in the CRM</h4><p>Enterprise Account 53, ICP Brand 103, ICP Brand 62, ICP Brand 63 and ICP Brand 73 are all 5,000+ employee companies and all appear as ad exposed CRM leads. Reports 1 and 2 both concluded enterprise does not convert. <b>Without deal stages populated we cannot tell whether these are real opportunities or noise</b>, so the enterprise reduction case is now weaker than stated and should be softened until outcomes arrive.</p></div>
+    <div class="card crit"><span class="tag">Coverage limit</span><h4>The join sees about half the delivery</h4><p>The DemandSense ABM signal set resolves <b>$13,414 of $24,411 spend, 3,416 of 6,421 clicks and 157,210 of 230,251 impressions</b>. Tier 4 is therefore an upper bound. A non match is not proof that a company was never served an ad.</p></div>
   </div>
-  <p class="note">Estimated cost is the company level spend recorded in the ABM export, not an allocation of the lead. Accounts shown are ICP fit and ad touched, deduplicated, and named by email domain because the export's company name field is unreliable on wrapped rows.</p>
+  <p class="note">Estimated cost is the company level spend recorded in the ABM export, not an allocation of the lead. Accounts shown are ICP fit and ad touched, deduplicated, and named by email domain because the company name field is unreliable on wrapped rows.</p>
 </section>
 <section>
   <div class="sec-head"><span class="sec-num">03</span><h2>Data hygiene defects</h2></div>
@@ -225,7 +225,7 @@
 
 <section>
   <div class="sec-head"><span class="sec-num">05</span><h2>Account leaderboard</h2></div>
-  <p class="sec-sub">Click any column to sort. Dual signal means the account engaged through both LinkedIn ads and the website, which is the strongest available intent marker with no CRM join.</p>
+  <p class="sec-sub">Click any column to sort. Dual signal means the account engaged through both LinkedIn ads and the website, which is the strongest available intent marker before deal stages are populated.</p>
   <div class="tabs" role="tablist" id="tabs"></div>
   <div id="panel"></div>
 </section>
@@ -296,10 +296,10 @@
           <td>Tighten to the matched ABM list. Broad reach is producing volume, not accounts.</td>
         </tr>
         <tr>
-          <td class="seg">No CRM join</td>
-          <td>in_crm returns 0 for all 9,787 accounts. No stage, no deal value, no closed won.</td>
-          <td class="num">Blocks all<br>attribution</td>
-          <td>Pipedrive export: company name, amount, create date, stage, source, for open and closed won.</td>
+          <td class="seg">Deal stages unpopulated</td>
+          <td>The DemandSense-to-HubSpot sync joins every ad-touched company, but deal stage, amount and close date are blank on 417 of 418 records.</td>
+          <td class="num">Blocks the<br>revenue view</td>
+          <td>Populate deal stage, amount and close date in HubSpot; DemandSense surfaces them automatically.</td>
         </tr>
         <tr>
           <td class="seg">Website identity is not the ICP</td>
@@ -326,7 +326,7 @@
 
 <section>
   <div class="sec-head"><span class="sec-num">08</span><h2>Action plan</h2></div>
-  <p class="sec-sub">Six moves, ordered. Two are gated on the Pipedrive export and are marked rather than presented as ready.</p>
+  <p class="sec-sub">Six moves, ordered. Two are gated on the client populating HubSpot deal stages and are marked rather than presented as ready.</p>
   <div class="cards">
     <div class="card crit"><span class="tag">1 / this week</span><h4>Apply the exclusion list and restate</h4><p>Remove both Northwind Commerce entities, Impactable, Amazon and the ten agency and competitor accounts. Rebuild engaged account counts and tell the client the numbers moved and why, before the next report shows a drop.</p></div>
     <div class="card crit"><span class="tag">2 / this week</span><h4>Cap the low tier and redirect</h4><p>240 accounts are taking a third of delivery for one lead. Frequency cap and exclude, then push the recovered budget into the 482 very high engagement accounts converting at 2.89%.</p></div>
