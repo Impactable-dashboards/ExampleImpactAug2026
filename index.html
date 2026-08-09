@@ -1,218 +1,775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Northwind Commerce | Impact Report</title>
-<link rel="preconnect" href="https://fonts.example.com">
-<link rel="preconnect" href="https://fonts.example.com" crossorigin>
-<link href="https://fonts.example.com/css2?family=DM+Sans:ital,opsz,contact@example.com,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:contact@example.com;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acme Corp — July 2026 Monthly Reporting Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a1628;--surface:rgba(17,29,51,.7);--line:rgba(189,215,255,.14);--line-strong:rgba(189,215,255,.28);
---navy:#1a3b6d;--blue:#0099d1;--teal:#00c4b3;--orange:#f4a261;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--yellow:#ffd166;
---txt:#e8f0fb;--txt-mid:#a8bcd8;--txt-dim:#6f88ad;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
-background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);background-attachment:fixed}
-.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
-header{padding:52px 0 30px}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
-h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
-h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
-.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
-.badges{display:flex;flex-wrap:wrap;gap:10px}
-.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
-.badge b{color:var(--txt);font-weight:700}
-.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
-.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
-background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
-.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
-.alert.g{border-color:rgba(34,197,94,.32);border-left-color:var(--green);background:linear-gradient(90deg,rgba(34,197,94,.08),rgba(17,29,51,.55))}
-.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
-.alert.w .tag{color:var(--orange)}.alert.g .tag{color:var(--green)}
-.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
-.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
-section{margin-top:56px}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
-.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
-h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
-.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
-.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
-.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
-.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
-.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
-.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
-.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
-/* system map */
-.sysmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--blue)}
-.col.tof{border-top-color:var(--purple)}.col.mof{border-top-color:var(--teal)}.col.bof{border-top-color:var(--red)}
-.col h3{margin:0 0 2px;font-size:17px;font-weight:700}
-.col .purpose{font-size:12.7px;color:var(--txt-dim);margin-bottom:12px;min-height:34px}
-.col .bud{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:3px}
-.col .bud small{font-size:11px;color:var(--txt-dim);font-weight:400}
-.col .budl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
-.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:7px}
-.pill .pn{font-size:12.6px;line-height:1.35}
-.pill .pv{font-family:var(--mono);font-size:11px;white-space:nowrap;color:var(--txt-mid)}
-.sb{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;font-weight:700;white-space:nowrap}
-.sb-on{background:rgba(0,153,209,.2);color:#4cc4f0;border:1px solid rgba(0,153,209,.45)}
-.sb-core{background:rgba(34,197,94,.2);color:var(--green);border:1px solid rgba(34,197,94,.5)}
-.sb-light{background:rgba(255,209,102,.16);color:var(--yellow);border:1px solid rgba(255,209,102,.4)}
-.sb-audit{background:rgba(244,162,97,.18);color:var(--orange);border:1px solid rgba(244,162,97,.45)}
-.sb-gap{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-.sb-next{background:rgba(167,139,250,.18);color:var(--purple);border:1px solid rgba(167,139,250,.45)}
-/* treemap */
-.tree{display:grid;grid-template-columns:repeat(12,1fr);gap:9px;grid-auto-rows:74px}
-.blk{border-radius:9px;padding:12px 13px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
-.blk .bn{font-size:12.6px;font-weight:600;line-height:1.25}
-.blk .bs{font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-dim)}
-.blk .ba{font-family:var(--mono);font-size:15px;font-weight:700}
-.blk.tof{background:linear-gradient(150deg,rgba(167,139,250,.22),rgba(17,29,51,.6))}
-.blk.mof{background:linear-gradient(150deg,rgba(0,196,179,.2),rgba(17,29,51,.6))}
-.blk.goog{background:linear-gradient(150deg,rgba(0,153,209,.2),rgba(17,29,51,.6))}
-.blk.bof{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.45)}
-.blk.new{background:rgba(167,139,250,.06);border:1px dashed rgba(167,139,250,.5)}
-/* bars */
-.bars{display:flex;flex-direction:column;gap:9px}
-.brow{display:grid;grid-template-columns:250px 1fr auto;gap:14px;align-items:center}
-.brow .bl{font-size:13px;color:var(--txt-mid)}
-.brow .bl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim)}
-.bt{height:28px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
-.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
-.bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
-.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
-.bf.z{background:none;min-width:0}
-.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
-.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:740px}
-th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:top}
-tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
-td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
-td.nm{font-weight:500;min-width:160px}td.sm{font-size:12.5px;color:var(--txt-mid)}
-tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
-.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
-.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
-.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
-.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
-.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
-.card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
-.card .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;padding:3px 8px;border-radius:5px;font-weight:700;float:right}
-/* roadmap */
-.road{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.ph{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--green)}
-.ph.next{border-top-color:var(--purple)}.ph.later{border-top-color:var(--blue)}
-.ph .pt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-.ph.next .pt{color:var(--purple)}.ph.later .pt{color:var(--blue)}
-.ph h4{margin:7px 0 3px;font-size:18px;font-weight:700}
-.ph .cost{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.ph ol{margin:0;padding-left:18px;color:var(--txt-mid);font-size:13.3px}
-.ph li{margin-bottom:8px}
-.ph li b{color:var(--txt)}
-.note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
-.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
-footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
-footer b{color:var(--txt-mid)}
-@media (max-width:900px){.sysmap,.road{grid-template-columns:1fr}.tree{grid-template-columns:repeat(6,1fr)}}
-@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}}
-@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}.tree{grid-template-columns:repeat(2,1fr)}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-
-/* ---- room nav ---- */
-.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);margin-bottom:0}
-.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
-.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--teal);white-space:nowrap;font-weight:700}
-.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
-.roomnav .links::-webkit-scrollbar{display:none}
-.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
-.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
-.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
-.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
-.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+:root{--navy:#001122;--blue:#0099D1;--teal:#00C4B3;--lime:#C6FF3D;--rust:#FF5A1F;--white:#FFFFFF;--light-bg:#F4F8FF;--light-blue:#D9E8FF;--line:#E3ECF7;--ink:#0A1628;--muted:#5A6B82;--red:#E53E3E;--red-bg:#FDE8E8;--green:#2F9E5E;--green-bg:#E6F8EE;--warn:#F59E0B;--warn-bg:#FFF6E3;--info:#3B82F6;--info-bg:#EAF1FE;--font-body:'DM Sans',-apple-system,sans-serif;--font-mono:'DM Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--light-bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+.room-header{background:linear-gradient(135deg,#001122 0%,#0D2450 50%,#003366 100%);color:#fff;padding:42px 40px 36px}
+.room-header .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.room-header h1{font-size:30px;font-weight:700;letter-spacing:-.5px;margin-bottom:6px}
+.room-header .meta{font-family:var(--font-mono);font-size:13px;opacity:.8}
+.room-header .badges{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:6px 12px;font-family:var(--font-mono);font-size:11.5px;color:#fff;opacity:.9}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.tab-bar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;gap:4px;padding:10px 24px}
+.tab-btn{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;padding:9px 16px;border-radius:9px;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{background:var(--light-bg);color:var(--navy)}.tab-btn.active{background:var(--navy);color:#fff}
+.tab-btn .ch-icon{margin-right:6px;font-size:14px}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+.section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 32px;margin-bottom:20px;scroll-margin-top:68px}
+.section h2{font-size:20px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.section h2 .num{font-family:var(--font-mono);font-size:12px;color:#fff;background:var(--blue);width:26px;height:26px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.section .sub{color:var(--muted);font-size:13.5px;margin-bottom:18px}
+.section h3{font-size:14.5px;font-weight:700;color:var(--navy);margin:20px 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.kpi{background:var(--light-bg);border:1px solid var(--line);border-radius:12px;padding:16px}
+.kpi .label{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.kpi .val{font-size:23px;font-weight:700;color:var(--navy);margin-top:4px;letter-spacing:-.5px}
+.kpi .delta{font-family:var(--font-mono);font-size:11.5px;margin-top:3px;font-weight:500}
+.kpi .bench{font-size:10.5px;color:var(--muted);margin-top:3px}
+.delta.up{color:var(--green)}.delta.down{color:var(--red)}.delta.flat{color:var(--muted)}
+.insight{border-left:4px solid var(--info);background:var(--info-bg);border-radius:0 10px 10px 0;padding:11px 16px;margin:12px 0;font-size:13.5px}
+.insight.good{border-color:var(--green);background:var(--green-bg)}.insight.warn{border-color:var(--warn);background:var(--warn-bg)}.insight.bad{border-color:var(--red);background:var(--red-bg)}
+.insight b{color:var(--navy)}
+.flag{border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:13.5px}
+.flag.high{background:var(--red-bg);border:1px solid var(--red)}.flag.med{background:var(--warn-bg);border:1px solid var(--warn)}.flag.low{background:var(--green-bg);border:1px solid var(--green)}
+.flag .ptag{font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.flag.high .ptag{color:var(--red)}.flag.med .ptag{color:#9A6400}.flag.low .ptag{color:var(--green)}
+.flag h4{font-size:14px;color:var(--navy);margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{text-align:left;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line)}tr:hover td{background:var(--light-bg)}
+th.r,td.r{text-align:right}.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+tr.top-row td{background:rgba(47,158,94,.07)}tr.low-row td{background:rgba(229,62,62,.06)}
+tr.total-row td{background:var(--light-bg);font-weight:700;border-top:2px solid var(--navy)}
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:20px}
+.tag.ch1{background:#E8F4FB;color:#0076a3}.tag.ch2{background:#E6F7F4;color:var(--teal)}
+.tag.exact{background:#E6F8EE;color:var(--green)}.tag.phrase{background:#FFF6E3;color:#9A6400}.tag.broad{background:#EAF1FE;color:var(--info)}
+.camp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.tier{border-radius:13px;padding:18px;border:1px solid var(--line)}
+.tier.t1{background:#E8F4FB;border-color:var(--blue)}.tier.t2{background:#E6F7F4;border-color:var(--teal)}
+.tier .tname{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
+.tier .talloc{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);margin-bottom:10px}
+.tier .trow{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px dashed rgba(0,0,0,.07)}
+.tier .trow span:last-child{font-family:var(--font-mono);font-weight:500}
+.bar-wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:16px}
+.bar{flex:1;min-width:260px;height:28px;border-radius:8px;background:var(--light-blue);overflow:hidden}
+.bar .fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--blue));display:flex;align-items:center;padding-left:12px;color:#fff;font-family:var(--font-mono);font-size:11.5px;font-weight:500}
+.pace-stat{font-family:var(--font-mono);font-size:12.5px;color:var(--navy)}
+.blended-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.hero-kpi{color:#fff;border-radius:16px;padding:22px 20px}
+.hero-kpi .hlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+.hero-kpi .hval{font-size:30px;font-weight:700;letter-spacing:-.5px}
+.hero-kpi .hmeta{font-family:var(--font-mono);font-size:11px;margin-top:4px;opacity:.75}
+.channel-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.ch-card{border:1px solid var(--line);border-radius:14px;padding:20px}
+.ch-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ch-card .ch-kpi-row{display:flex;flex-wrap:wrap;gap:10px}
+.mini-kpi{background:var(--light-bg);border-radius:9px;padding:10px 14px;flex:1;min-width:90px}
+.mini-kpi .ml{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
+.mini-kpi .mv{font-size:16px;font-weight:700;color:var(--navy);margin-top:2px}
+.oplog{list-style:none;padding:0}
+.oplog li{padding:10px 0 10px 28px;position:relative;border-bottom:1px solid var(--line);font-size:13.5px}
+.oplog li::before{content:"✓";position:absolute;left:0;top:10px;color:var(--teal);font-weight:700}
+.status-active{color:var(--green);font-weight:700;font-size:11px;font-family:var(--font-mono)}
+.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:36px;padding-top:20px;border-top:1px solid var(--line)}
+@media(max-width:640px){.room-header{padding:30px 20px}.section{padding:22px 16px}.tab-bar{padding:8px 12px;gap:2px}.tab-btn{font-size:12px;padding:8px 11px}.channel-split{grid-template-columns:1fr}}
 </style>
-<style>
-.emsbar{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--surface);
- border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:6px 0 26px}
-.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--teal)}
-.emsbar .big span{font-size:17px;color:var(--txt-dim)}
-.emsl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:8px}
-.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
-.stages div{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
- padding:9px 4px;background:rgba(0,0,0,.28);color:var(--txt-dim);border:1px solid var(--line)}
-.stages div:first-child{border-radius:6px 0 0 6px}.stages div:last-child{border-radius:0 6px 6px 0}
-.stages div.on{background:var(--teal);color:#04121f;font-weight:700;border-color:var(--teal)}
-.bypil{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);line-height:1.9;white-space:nowrap}
-.bypil b{color:var(--txt)}
-.board{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
-.colh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:700}
-.cols{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid var(--line-strong)}
-.mc{border-radius:9px;padding:11px 12px;margin-bottom:9px;border:1px solid var(--line);background:var(--surface);position:relative}
-.mc.c-run{background:rgba(0,196,179,.09);border-color:rgba(0,196,179,.35)}
-.mc.c-next{background:rgba(34,197,94,.2);border-color:var(--green)}
-.mc.c-gap{background:transparent;border:1px dashed rgba(239,68,68,.5)}
-.mc.c-lock{background:rgba(111,136,173,.13);border-color:var(--line-strong)}
-.mch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.mid{font-family:var(--mono);font-size:10px;color:var(--txt-dim)}
-.pip{font-size:11px;letter-spacing:1.5px;color:var(--txt-mid)}
-.mc.c-next .pip,.mc.c-next .mid{color:var(--green)}
-.mnm{font-size:13.2px;font-weight:600;line-height:1.3}
-.mow{font-family:var(--mono);font-size:9.5px;color:var(--txt-dim);margin-top:5px}
-.cb{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
- text-transform:uppercase;color:var(--green);font-weight:700}
-.mc.c-lock .cb{color:var(--txt-dim)}
-.mc.c-next{padding-bottom:24px}.mc.c-lock{padding-bottom:24px}
-.lgd{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
- font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);align-items:center}
-.lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
-@media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
-</style></head>
+</head>
 <body>
-<nav class="roomnav"><div class="inner"><span class="brand">Northwind Commerce / Impact Report</span><div class="links"><a href="index.html" class="on">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="09-strategy.html"><span class="n">09</span>Strategy</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
-<div class="wrap"><header><p class="eyebrow">Quarterly Impact Report / internal</p>
-<h1>Northwind Commerce<span class="sub">The engine works inside a ceiling it cannot cross on LinkedIn. Expand now.</span></h1>
-<p class="meta">1 March to 28 July 2026 &nbsp;/&nbsp; Windsor verified &nbsp;/&nbsp; prepared by Impactable</p>
-<div class="badges"><span class="badge">EMS <b>47/100</b>, Reach</span><span class="badge"><b>$18,406</b> verified spend</span>
-<span class="badge"><b>18</b> leads, <b>6</b> qualified</span><span class="badge"><b>47.6%</b> penetration on the converting pool</span>
-<span class="badge"><b>$4,080</b> monthly waste out</span><span class="badge"><b>$2,500</b> the only new ask</span></div>
-<div class="rule"></div></header>
-<div class="alert g"><span class="tag">The thesis</span><h3>Expand now, but earn it in this order: cut the waste, activate what we already own, then Meta.</h3>
-<p>Every lead in the account came from touching <b>47.6% of one 7,700 person pool at 7.5x frequency</b>. The offer converts at $170.76 and the audience is right. More LinkedIn budget buys repetition, not reach: penetration falls from 58% on small pools to 10% on large ones, and <b>179,524 people have never been reached at all</b>.</p>
-<p>Meta is the answer, and it ranks <b>third</b>. Two moves cost nothing and come first: <b>20,000 newsletter subscribers and 1,325 identified companies have never been uploaded</b>, and conversion tracking has never fired. Presenting Meta after those two is the difference between a recommendation and an upsell.</p></div>
-<section><div class="sec-head"><span class="sec-num">01</span><h2>Scorecard</h2></div>
-<div class="stats">
-<div class="stat good"><div class="lbl">Ecosystem maturity</div><div class="val good">47</div><div class="who">of 100, stage Reach</div><div class="note">Crossed out of Ramp this quarter</div></div>
-<div class="stat"><div class="lbl">Verified spend</div><div class="val">$18,406</div><div class="who">LinkedIn $14,474, Google $3,933</div><div class="note">Windsor matches console to the cent</div></div>
-<div class="stat"><div class="lbl">Leads</div><div class="val">18</div><div class="who">6 resolve to a real brand</div><div class="note">CPL $170.76 on the lead campaign</div></div>
-<div class="stat warn"><div class="lbl">Penetration</div><div class="val warn">27.8%</div><div class="who">weighted, all pools</div><div class="note">179,524 never reached</div></div>
-<div class="stat bad"><div class="lbl">BOF spend</div><div class="val bad">$0</div><div class="who">no campaign exists</div><div class="note">Two stage system, three stage job</div></div>
-</div></section>
-<section><div class="sec-head"><span class="sec-num">02</span><h2>What is working, what is not</h2></div>
-<div class="cards">
-<div class="card opp"><span class="tag">Working</span><h4>Targeting reaches the right people</h4><p><b>70.3% of impressions land on Director and above</b>, and all five recorded conversions sit in the 51 to 200 employee band, squarely inside ICP. June to July, enterprise went from 18 of the top 30 engaged accounts to zero.</p></div>
-<div class="card opp"><span class="tag">Working</span><h4>Google outperforms LinkedIn on every visible metric</h4><p><b>13.77% CTR against 2.79%. $1.51 CPC against $4.81.</b> The only channel with recorded conversions. The earlier recommendation to cut it is withdrawn.</p></div>
-<div class="card crit"><span class="tag">Not working</span><h4>Nothing closes</h4><p>Convert scores <b>7.8 of 20</b>. BOF conversion and sales activation both at zero depth. People reached seven times are still offered a PDF, and named accounts like ICP Brand 108 sit unworked.</p></div>
-<div class="card crit"><span class="tag">Not working</span><h4>Three quarters of Google spend bought the wrong intent</h4><p><b>$2,929 of $3,933</b> went to affiliate and influencer keywords, searched by people wanting to become an Amazon affiliate. 91% of spend sits in ad groups now paused.</p></div>
-<div class="card watch"><span class="tag">Unresolved</span><h4>Conversions cannot be reconciled</h4><p>Campaign Manager says 5, DemandSense 0, Google 2. <b>No revenue data exists at all</b>: Deal Status is blank on 417 of 418 CRM records. Never quote one figure without naming the source.</p></div>
-<div class="card opp"><span class="tag">Ready</span><h4>Meta is an earned unlock</h4><p>A validated campaign with unexposed pockets. <b>28,117 named ICP people</b> LinkedIn structurally cannot serve. Approved 31 July, plan with the Meta lead.</p></div>
-</div></section>
-<section><div class="sec-head"><span class="sec-num">03</span><h2>Next 90, in brief</h2></div>
-<p class="sec-sub">Fourteen moves. Full detail with owners and budgets on the Next 90 tab.</p>
-<div class="tblwrap"><table><thead><tr><th>Phase</th><th>Moves</th><th>Budget effect</th></tr></thead><tbody>
-<tr><td class="nm">Prerequisites</td><td class="sm">Upload the warm pools. Fix conversion tracking.</td><td class="num" style="color:var(--green)">$0</td></tr>
-<tr><td class="nm">Now, weeks 1 to 4</td><td class="sm">3 cuts, 2 scales. Affiliate keywords, three CUT campaigns, enterprise case studies out. Google brand and the LGF size split in.</td><td class="num" style="color:var(--orange)">-$4,080/mo</td></tr>
-<tr><td class="nm">Next, weeks 5 to 12</td><td class="sm">Meta extension, BOF audit offer, Google restructure, VP+ and Marketing on aware accounts, playbook variants.</td><td class="num" style="color:var(--purple)">+$2,500/mo</td></tr>
-<tr><td class="nm">Test, months 4 to 6</td><td class="sm">ICP Brand 100 case study, wellness category playbook, programmatic, AI assistant ads.</td><td class="num">gated</td></tr>
-</tbody></table></div>
-<p class="note">The account deliberately underspends at week 4 while waste comes out and tracking is fixed. The only new ask inside 90 days is $2,500.</p></section>
-<div class="internal">Internal impact report. Contains suppression judgements about the client's own company, competitor identification, qualification calls on recorded leads, and corrections to claims previously made to the client. Not for client distribution without review.</div>
-<footer><div><b>Period</b><br>1 Mar to 28 Jul 2026</div><div><b>Thesis</b><br>Expand now</div><div><b>EMS</b><br>47/100, Reach</div><div><b>Next unlock</b><br>Warm pools, $0</div><div><b>Prepared by</b><br>Impactable</div></footer></div></body></html>
+
+<div class="room-header">
+  <div class="eyebrow">Impactable · Monthly Reporting Room</div>
+  <h1>Acme Corp — July 2026</h1>
+  <div class="meta">Reporting Period: July 1–31, 2026 &nbsp;·&nbsp; Google Ads + LinkedIn Ads</div>
+  <div class="badges">
+    <div class="badge"><span class="dot"></span>LinkedIn Ads · $12,600 budget</div>
+    <div class="badge"><span class="dot" style="background:var(--lime)"></span>Google Ads · $22,400 budget</div>
+    <div class="badge"><span class="dot" style="background:var(--rust)"></span>Prepared by Impactable</div>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('summary',this)"><span class="ch-icon">📊</span>Summary</button>
+  <button class="tab-btn" onclick="switchTab('linkedin',this)"><span class="ch-icon">🔵</span>LinkedIn Ads</button>
+  <button class="tab-btn" onclick="switchTab('google',this)"><span class="ch-icon">🟢</span>Google Ads</button>
+</div>
+
+<!-- ══════════════════ TAB 1: SUMMARY ══════════════════ -->
+<div id="tab-summary" class="tab-panel active">
+<div class="wrap">
+
+  <div class="section">
+    <h2><span class="num">→</span>Blended Overview</h2>
+    <p class="sub">Combined performance across LinkedIn Ads and Google Ads — July 2026</p>
+    <div class="blended-hero">
+      <div class="hero-kpi" style="background:linear-gradient(135deg,#001122,#0D2450)">
+        <div class="hlabel">Total Spend</div>
+        <div class="hval">$34,871</div>
+        <div class="hmeta">LI $12,418 · Google $22,453</div>
+      </div>
+      <div class="hero-kpi" style="background:linear-gradient(135deg,#003344,#006688)">
+        <div class="hlabel">Total Clicks</div>
+        <div class="hval">3,014</div>
+        <div class="hmeta">LI 583 · Google 2,431</div>
+      </div>
+      <div class="hero-kpi" style="background:linear-gradient(135deg,#002233,#005577)">
+        <div class="hlabel">Total Impressions</div>
+        <div class="hval">163,847</div>
+        <div class="hmeta">LI 136,914 · Google 26,933</div>
+      </div>
+      <div class="hero-kpi" style="background:linear-gradient(135deg,#001a2e,#004466)">
+        <div class="hlabel">Google CPL</div>
+        <div class="hval">$243</div>
+        <div class="hmeta">92 conversions · 3.8% conv. rate</div>
+      </div>
+    </div>
+
+    <div class="channel-split">
+      <div class="ch-card">
+        <h4>🔵 LinkedIn Ads <span class="tag ch2" style="margin-left:auto;font-size:10px">Awareness</span></h4>
+        <div class="ch-kpi-row">
+          <div class="mini-kpi"><div class="ml">Spend</div><div class="mv">$12,418</div></div>
+          <div class="mini-kpi"><div class="ml">Impressions</div><div class="mv">136,914</div></div>
+          <div class="mini-kpi"><div class="ml">Clicks</div><div class="mv">583</div></div>
+          <div class="mini-kpi"><div class="ml">CTR</div><div class="mv">0.43%</div></div>
+          <div class="mini-kpi"><div class="ml">CPC</div><div class="mv">$21.30</div></div>
+          <div class="mini-kpi"><div class="ml">Reach</div><div class="mv">78,347</div></div>
+        </div>
+      </div>
+      <div class="ch-card">
+        <h4>🟢 Google Ads <span class="tag ch1" style="margin-left:auto;font-size:10px">Search</span></h4>
+        <div class="ch-kpi-row">
+          <div class="mini-kpi"><div class="ml">Spend</div><div class="mv">$22,453</div></div>
+          <div class="mini-kpi"><div class="ml">Impressions</div><div class="mv">26,933</div></div>
+          <div class="mini-kpi"><div class="ml">Clicks</div><div class="mv">2,431</div></div>
+          <div class="mini-kpi"><div class="ml">CTR</div><div class="mv">9.03%</div></div>
+          <div class="mini-kpi"><div class="ml">CPC</div><div class="mv">$9.24</div></div>
+          <div class="mini-kpi"><div class="ml">Conv.</div><div class="mv">92</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="insight good"><b>✅ Both channels are performing at or above benchmark.</b> LinkedIn is building pipeline awareness across 78,347 unique ICP professionals. Google Search is converting at $243/lead with a 3.8% conversion rate — strong for B2B. Together the program is driving meaningful top-of-funnel reach while Google closes intent-driven traffic.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">1</span>Month in Review</h2>
+    <p class="sub">What happened, what's working, and what's next</p>
+    <h3>🔵 LinkedIn Ads</h3>
+    <p style="font-size:14px;line-height:1.7;margin-bottom:14px">July delivered strong awareness results at the $12,600 budget level. Two core messaging themes — a category leadership angle and a compliance/risk-mitigation angle — ran across six ad set variations, reaching 78,347 unique professionals at 1.75× frequency. The risk-mitigation message continues to lead at 0.71% CTR vs. the 0.43% account average, confirming this audience responds more to pain avoidance than growth narratives at the top of funnel. Two named enterprise accounts are producing 4.5%+ CTR, well above the 0.40–0.60% LinkedIn healthcare benchmark — flagging them as priority ABM targets in August now that CAPI is live.</p>
+    <div class="insight good"><b>Key win:</b> Risk-mitigation messaging delivered 0.71% CTR — 65%+ above the LinkedIn healthcare average. Clear creative signal to allocate more budget behind this angle in August.</div>
+    <div class="insight warn"><b>Watch-out:</b> CAPI is now configured as of Aug 1. August will be the first month with full attribution data connecting LinkedIn exposure to CRM-qualified pipeline.</div>
+    <h3 style="margin-top:24px">🟢 Google Ads</h3>
+    <p style="font-size:14px;line-height:1.7;margin-bottom:14px">Google Search drove 2,431 clicks and 92 confirmed conversions at a $243 cost-per-lead — within the $250 target. Blended CTR held at 9.03% and CPC improved to $9.24 from $11.08 last month following negative keyword refinements in Week 2. The Retail Partner service line remains the standout (63% of spend, lowest CPC at $8.53), while Marketplace Services improved efficiency meaningfully after 38 negatives were added mid-month. Search impression share climbed to 54% from 31% in June. Top search terms reveal strong branded and category-intent traffic dominating volume, with 6 broad-match terms flagged for match-type tightening in August.</p>
+    <div class="insight good"><b>Key win:</b> 92 conversions at $243 CPL — on target. CPC dropped 17% month-over-month, and impression share nearly doubled.</div>
+    <div class="insight"><b>Opportunity:</b> 6 search terms in the top 25 have above-average CPC (&gt;$13) with CTR under 4% — candidates for bid cuts or match-type tightening in August.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>August Priorities</h2>
+    <p class="sub">Cross-channel action items ranked by expected impact</p>
+    <div class="flag high">
+      <div class="ptag">🔴 Critical — LinkedIn</div>
+      <h4>Activate ABM retargeting layer using July engagement signals</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px">CAPI is live as of Aug 1. Build retargeting segments from the two enterprise accounts showing 4.5%+ CTR in July and serve them MOF content — case studies, ROI data, demo offers. This transitions the program from pure awareness to pipeline.</p>
+    </div>
+    <div class="flag high">
+      <div class="ptag">🔴 High Priority — LinkedIn</div>
+      <h4>Launch Predictive Audience Campaign (27k+ ICP Professionals)</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px">A prepared predictive audience of 27,000+ ICP-filtered professionals is ready to activate with Spotlight and Video formats. Budget recommendation: shift ~$1,500 of the $12,600 into this new campaign alongside current Sponsored Updates.</p>
+    </div>
+    <div class="flag med">
+      <div class="ptag">🟡 High Priority — Google</div>
+      <h4>Match-type tighten 6 flagged broad-match search terms</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px">Six terms in the top 25 are spending a combined $2,847 at $13–$18 CPC with under 4% CTR and only 3 total conversions. Converting to phrase match or adding as negatives where intent is off-ICP should free meaningful budget for top-performing terms.</p>
+    </div>
+    <div class="flag med">
+      <div class="ptag">🟡 Medium — Google</div>
+      <h4>Increase bids on top 5 converting search terms</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px">The top 5 terms by conversion volume are responsible for 41 of 92 total conversions at $8.53 avg CPC. Estimated impression share on these is 45–55% — there's real upside in raising bids 15–20% to capture more of this high-intent volume.</p>
+    </div>
+    <div class="flag low">
+      <div class="ptag">✅ Monitoring — LinkedIn</div>
+      <h4>Pause 2 underperforming ad sets; introduce creative refresh</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px">Ad Sets 1 and 3b are below 0.33% CTR. Pause and replace with carousel and video formats leaning into the compliance/risk-mitigation angle that's outperforming at top of funnel.</p>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <p>Prepared by Impactable &nbsp;·&nbsp; impactable.com &nbsp;·&nbsp; Monthly Reporting Room &nbsp;·&nbsp; July 2026</p>
+    <p style="margin-top:4px">Client details anonymized for demonstration purposes.</p>
+  </footer>
+</div>
+</div>
+
+<!-- ══════════════════ TAB 2: LINKEDIN ══════════════════ -->
+<div id="tab-linkedin" class="tab-panel">
+<div class="wrap">
+
+  <div class="section">
+    <h2><span class="num">1</span>Executive Summary</h2>
+    <p class="sub">LinkedIn Ads — July 1–31, 2026 · $12,600 budget</p>
+    <p style="font-size:14px;line-height:1.7;margin-bottom:16px">July delivered strong awareness results at scale. Two messaging themes — "Category Leader" (growth/scale positioning) and "Compliance Partner" (risk mitigation) — ran across six ad set variations, reaching <strong>78,347 unique professionals</strong> at 1.75× frequency. The account generated 136,914 impressions and 583 clicks at a 0.43% blended CTR. The compliance/risk angle outperformed at 0.71% CTR. Two named enterprise accounts produced 4.5%+ CTR against a 0.40% healthcare benchmark — the first clear ABM targets for August retargeting.</p>
+    <h3>Wins</h3>
+    <ul style="margin-left:20px;margin-bottom:12px;font-size:14px">
+      <li style="margin-bottom:6px"><b>Audience quality confirmed at scale:</b> Core verticals (Recreational Facilities 47%, Medical Practices 29%, Hospitals 28%) maintained targeting accuracy at $12,600 spend — no audience fatigue signals yet at 1.75× frequency.</li>
+      <li style="margin-bottom:6px"><b>Compliance Partner is the clear winner:</b> 0.71% CTR vs. 0.43% blended average. Doubling down in August with expanded creative formats and fresh hooks.</li>
+      <li><b>Efficient CPM for vertical:</b> $90.70 CPM is within the $50–$150 benchmark for healthcare B2B at this budget level.</li>
+    </ul>
+    <h3>Watch-outs</h3>
+    <ul style="margin-left:20px;font-size:14px">
+      <li><b>CAPI now live as of Aug 1:</b> August is the first month with full conversion attribution — we'll be able to connect LinkedIn exposure to qualified pipeline for the first time.</li>
+      <li style="margin-top:6px"><b>Creative scope limited to Sponsored Updates:</b> Spotlight and Video formats launch in August alongside the predictive audience campaign.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>KPIs</h2>
+    <p class="sub">Core metrics — July 1–31, 2026</p>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Spend</div><div class="val">$12,418</div><div class="delta flat">$182 under budget</div></div>
+      <div class="kpi"><div class="label">Impressions</div><div class="val">136,914</div><div class="delta up">▲ +9.3% vs Jun</div></div>
+      <div class="kpi"><div class="label">Clicks</div><div class="val">583</div><div class="delta up">▲ +21% vs Jun</div></div>
+      <div class="kpi"><div class="label">CTR</div><div class="val">0.43%</div><div class="delta up">▲ Above LI avg</div></div>
+      <div class="kpi"><div class="label">CPC</div><div class="val">$21.30</div><div class="bench">Benchmark: $15–$40</div></div>
+      <div class="kpi"><div class="label">CPM</div><div class="val">$90.70</div><div class="bench">Benchmark: $50–$150</div></div>
+      <div class="kpi"><div class="label">Reach</div><div class="val">78,347</div></div>
+      <div class="kpi"><div class="label">Avg Frequency</div><div class="val">1.75×</div><div class="bench">Healthy: 1.5–3.0×</div></div>
+      <div class="kpi"><div class="label">Conversions</div><div class="val">—</div><div class="delta flat">CAPI live Aug 1</div></div>
+    </div>
+    <div class="insight good" style="margin-top:16px"><b>✅ CTR outperforms benchmark at this budget level.</b> 0.43% blended CTR is above the LinkedIn healthcare average of 0.36–0.40%. Top-performing ad sets are running at 0.71% — nearly 2× the benchmark. Budget was $182 under target due to auction volatility in Week 3; will smooth out in August.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span>Benchmarks</h2>
+    <p class="sub">Performance vs. LinkedIn industry standards (Healthcare/B2B vertical)</p>
+    <table>
+      <thead><tr><th>Metric</th><th>Your Performance</th><th>LinkedIn B2B Avg</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>CTR (Website Visits)</td><td>0.43%</td><td>0.40–0.60%</td><td style="color:var(--green);font-weight:500">✅ On target</td></tr>
+        <tr><td>CPM (Sponsored Update)</td><td>$90.70</td><td>$50–$150</td><td style="color:var(--green);font-weight:500">✅ Within range</td></tr>
+        <tr><td>CPC</td><td>$21.30</td><td>$15–$40</td><td style="color:var(--green);font-weight:500">✅ Within range</td></tr>
+        <tr><td>Avg Frequency</td><td>1.75×</td><td>1.5–3.0× (healthy)</td><td style="color:var(--green);font-weight:500">✅ Not saturated</td></tr>
+        <tr><td>Top Ad Set CTR</td><td>0.71%</td><td>0.40–0.60%</td><td style="color:var(--green);font-weight:500">✅ Above benchmark</td></tr>
+      </tbody>
+    </table>
+    <div class="insight good" style="margin-top:12px"><b>✅ All core metrics within healthy range</b> for awareness-stage Sponsored Updates. No red flags on cost efficiency or frequency saturation at the $12,600 spend level.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span>Audience &amp; Demographics</h2>
+    <p class="sub">Audience breakdown by industry and account — July 2026</p>
+    <h3>Top Industries by Impressions</h3>
+    <table>
+      <thead><tr><th>Industry</th><th class="r">Impressions</th><th class="r">% of Total</th><th class="r">Clicks</th><th class="r">CTR</th></tr></thead>
+      <tbody>
+        <tr class="top-row"><td>Recreational Facilities</td><td class="mono r">64,349</td><td class="mono r">47.0%</td><td class="mono r">251</td><td class="mono r">0.39%</td></tr>
+        <tr><td>Medical Practices</td><td class="mono r">39,705</td><td class="mono r">29.0%</td><td class="mono r">155</td><td class="mono r">0.39%</td></tr>
+        <tr><td>Hospitals and Health Care</td><td class="mono r">38,336</td><td class="mono r">28.0%</td><td class="mono r">199</td><td class="mono r">0.52%</td></tr>
+        <tr><td>Medical Equipment Mfg.</td><td class="mono r">29,721</td><td class="mono r">21.7%</td><td class="mono r">0</td><td class="mono r">0.00%</td></tr>
+        <tr><td>Chemical Manufacturing</td><td class="mono r">26,246</td><td class="mono r">19.2%</td><td class="mono r">184</td><td class="mono r">0.70%</td></tr>
+      </tbody>
+    </table>
+    <h3>Top Performing Accounts (by Clicks)</h3>
+    <table>
+      <thead><tr><th>Account</th><th class="r">Impressions</th><th class="r">Clicks</th><th class="r">CTR</th></tr></thead>
+      <tbody>
+        <tr class="top-row"><td>Enterprise Account A</td><td class="mono r">5,472</td><td class="mono r">251</td><td class="mono r">4.59%</td></tr>
+        <tr class="top-row"><td>Enterprise Account B</td><td class="mono r">1,913</td><td class="mono r">90</td><td class="mono r">4.70%</td></tr>
+        <tr><td>Hospitals &amp; Health Care (agg.)</td><td class="mono r">38,336</td><td class="mono r">199</td><td class="mono r">0.52%</td></tr>
+        <tr><td>Manufacturing (agg.)</td><td class="mono r">11,247</td><td class="mono r">112</td><td class="mono r">1.00%</td></tr>
+        <tr><td>Advertising Services</td><td class="mono r">10,603</td><td class="mono r">114</td><td class="mono r">1.08%</td></tr>
+      </tbody>
+    </table>
+    <div class="insight good" style="margin-top:14px"><b>🎯 ABM signal:</b> Enterprise Accounts A and B are producing 4.59–4.70% CTR — roughly 10× the industry aggregate rate. These are the first retargeting audiences to build now that CAPI is live. August plan: serve them MOF content (case studies, ROI calculator, demo CTA) with a dedicated Spotlight campaign.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">5</span>Ad Performance</h2>
+    <p class="sub">Individual ad set breakdown — July 1–31, 2026</p>
+    <h3>Top Performers</h3>
+    <table>
+      <thead><tr><th>Ad Set / Message</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">CPM</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr class="top-row">
+          <td><b>Ad Set 2: "Compliance Partner"</b><br><span style="font-size:11px;color:var(--muted)">Risk mitigation angle</span></td>
+          <td class="mono r">19,284</td><td class="mono r">137</td><td class="mono r">0.71%</td><td class="mono r">$139.07</td><td><span class="status-active">Active</span></td>
+        </tr>
+        <tr>
+          <td><b>Ad Set 1b: "Category Leader"</b><br><span style="font-size:11px;color:var(--muted)">Growth/scale angle</span></td>
+          <td class="mono r">20,031</td><td class="mono r">91</td><td class="mono r">0.45%</td><td class="mono r">$94.83</td><td><span class="status-active">Active</span></td>
+        </tr>
+        <tr>
+          <td><b>Ad Set 2c: "Compliance Partner"</b><br><span style="font-size:11px;color:var(--muted)">Variant — shorter copy</span></td>
+          <td class="mono r">16,683</td><td class="mono r">91</td><td class="mono r">0.55%</td><td class="mono r">$104.62</td><td><span class="status-active">Active</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight good" style="margin-top:12px"><b>💡 Why top performers work:</b> Ad Set 2 ("Compliance Partner") leads at 0.71% CTR. Risk/pain-avoidance framing — regulatory compliance, account protection, audit risk — resonates more strongly with healthcare decision-makers at top of funnel than growth positioning.</div>
+    <h3>Lower Performers</h3>
+    <table>
+      <thead><tr><th>Ad Set / Message</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">CPM</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="low-row">
+          <td><b>Ad Set 3b: "Compliance Partner"</b><br><span style="font-size:11px;color:var(--muted)">Variant B — longer copy</span></td>
+          <td class="mono r">20,937</td><td class="mono r">69</td><td class="mono r">0.33%</td><td class="mono r">$70.28</td><td>Monitor; test creative refresh</td>
+        </tr>
+        <tr class="low-row">
+          <td><b>Ad Set 1: "Category Leader"</b><br><span style="font-size:11px;color:var(--muted)">Original — static image</span></td>
+          <td class="mono r">20,553</td><td class="mono r">46</td><td class="mono r">0.22%</td><td class="mono r">$46.48</td><td>Pause and refresh copy</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight warn" style="margin-top:12px"><b>⚠️ Why they underperform:</b> Ad Sets 1 and 3b are running 50%+ below top performer CTR. Likely a combination of creative fatigue on the static image and weaker copy hooks. Recommend pausing both and replacing with carousel or video formats with updated headlines in August.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">6</span>Recommendations — August 2026</h2>
+    <p class="sub">Prioritized actions for next month</p>
+    <div class="flag high">
+      <div class="ptag">🔴 Critical</div>
+      <h4>1. Launch ABM retargeting from July engagement signals</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:5px">CAPI is live. Build retargeting audiences from Enterprise Accounts A &amp; B (4.5%+ CTR) and serve MOF content — case studies, ROI data, demo CTAs via Spotlight. Budget: ~$1,200 from existing allocation.</p>
+    </div>
+    <div class="flag med">
+      <div class="ptag">🟡 High Priority</div>
+      <h4>2. Launch Predictive Audience Campaign</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:5px">Deploy 27,000+ ICP-filtered predictive audience with Spotlight and Video. Shift ~$1,500 into this campaign. Test two new creative hooks: one anchored on regulatory risk, one on competitive displacement.</p>
+    </div>
+    <div class="flag med">
+      <div class="ptag">🟡 High Priority</div>
+      <h4>3. Pause underperforming ad sets; launch creative refresh</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:5px">Pause Ad Sets 1 and 3b. Redirect their budget (~$2,800 combined) to carousel and video formats. Priority: compliance-angle creative with two fresh hooks.</p>
+    </div>
+    <div class="flag low">
+      <div class="ptag">✅ Monitoring</div>
+      <h4>4. Establish August CPL baseline</h4>
+      <p style="font-size:13px;color:var(--muted);margin-top:5px">With CAPI live, August is the first month we can benchmark Cost-Per-Lead from LinkedIn. Target: under $380 CPL for qualified pipeline. Will report actuals in August review.</p>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <p>Prepared by Impactable &nbsp;·&nbsp; impactable.com &nbsp;·&nbsp; LinkedIn Ads Report &nbsp;·&nbsp; July 2026</p>
+    <p style="margin-top:4px">Client details anonymized for demonstration purposes.</p>
+  </footer>
+</div>
+</div>
+
+<!-- ══════════════════ TAB 3: GOOGLE ADS ══════════════════ -->
+<div id="tab-google" class="tab-panel">
+<div class="wrap">
+
+  <div class="section">
+    <h2><span class="num">1</span>Executive Summary</h2>
+    <p class="sub">Google Ads — July 1–31, 2026 · $22,400 budget</p>
+    <p style="font-size:14px;line-height:1.7;margin-bottom:16px">July was the account's best month to date. The account spent <strong>$22,453</strong> (slightly over budget due to auction variance in Week 1) across two Search campaigns, driving <strong>2,431 clicks</strong> at a blended CTR of <strong>9.03%</strong> and blended CPC of <strong>$9.24</strong>. The account produced <strong>92 confirmed conversions</strong> at a <strong>$243 cost-per-lead</strong>, within the $250 target. Search impression share climbed to <strong>54%</strong> from 31% in June following bid strategy changes and landing page improvements. The Retail Partner service line remains the efficiency leader ($8.53 CPC, $211 CPL), while Marketplace Services improved after 38 negative keywords were added mid-month. Six broad-match search terms are flagged as August optimization targets.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:4px">
+      <div class="insight good"><b>✅ Win:</b> 92 conversions at $243 CPL — on target for B2B. Conversion volume up 31% vs. June.</div>
+      <div class="insight good"><b>✅ Win:</b> Search impression share grew from 31% to 54% MoM after bid strategy switch to Target CPA.</div>
+      <div class="insight"><b>🔧 Opportunity:</b> 6 broad-match terms spending $2,847 combined at $13–$18 CPC with 3 total conversions — prime candidates for match-type tightening.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>Account Activity &amp; Optimizations</h2>
+    <p class="sub">Changes and observations during July 2026</p>
+    <ul class="oplog">
+      <li><strong>Switched to Target CPA bidding at $235 target — July 8:</strong> Moved both campaigns from Maximize Clicks to Target CPA after reaching the minimum 30-conversion threshold. Impression share improved immediately; CPC dropped $1.84 within the following week.</li>
+      <li><strong>Negative keyword expansion — July 14 (38 negatives added):</strong> Search term review on the Marketplace Services ad group revealed a cluster of off-ICP queries around consumer-facing e-commerce tools. Added 38 negatives across the campaign. CPC in that group dropped from $14.62 to $11.09 in the second half of the month.</li>
+      <li><strong>Search impression share climbed to 54%:</strong> Up from 31% in June, driven by the CPA bid switch and Quality Score improvements from landing page copy alignment completed late June. Budget cap is no longer the primary limiter — ranking is now the constraint on roughly 30% of missed impressions.</li>
+      <li><strong>Landing page alignment for Channel Migration ad group:</strong> Updated the destination URL for the Channel Migration ad group to a more specific page after identifying a high bounce rate. Conversion volume is still low but improving.</li>
+      <li><strong>Overspend of $53 in Week 1:</strong> Auction volatility early in the month pushed spend slightly above the $22,400 budget. Will tighten daily caps in August to stay within budget.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span>Key Performance Indicators</h2>
+    <p class="sub">July 1–31, 2026 — full month</p>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Total Spend</div><div class="val">$22,453</div><div class="delta down">▲ $53 over budget</div></div>
+      <div class="kpi"><div class="label">Impressions</div><div class="val">26,933</div><div class="delta up">▲ +38% vs Jun</div></div>
+      <div class="kpi"><div class="label">Clicks</div><div class="val">2,431</div><div class="delta up">▲ +27% vs Jun</div></div>
+      <div class="kpi"><div class="label">Blended CTR</div><div class="val">9.03%</div><div class="delta up">▲ vs 8.1% Jun</div><div class="bench">B2B norm: 3–7%</div></div>
+      <div class="kpi"><div class="label">Blended CPC</div><div class="val">$9.24</div><div class="delta up">▼ vs $11.08 Jun</div><div class="bench">B2B norm: $5–$20</div></div>
+      <div class="kpi"><div class="label">Conversions</div><div class="val">92</div><div class="delta up">▲ +31% vs Jun</div></div>
+      <div class="kpi"><div class="label">Conv. Rate</div><div class="val">3.79%</div><div class="delta up">▲ vs 3.11% Jun</div></div>
+      <div class="kpi"><div class="label">Cost/Conv.</div><div class="val">$243</div><div class="delta up">▼ vs $287 Jun</div><div class="bench">Target: &lt;$250</div></div>
+      <div class="kpi"><div class="label">Impr. Share</div><div class="val">54%</div><div class="delta up">▲ vs 31% Jun</div><div class="bench">Target: 65%+</div></div>
+    </div>
+    <div class="insight good" style="margin-top:16px"><b>✅ Best month yet across nearly every metric.</b> CPL hit $243 against a $250 target; conversion volume up 31%; impression share nearly doubled. The minor overspend ($53) is not a concern and will be managed with tighter daily caps in August.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span>Spend by Service Line</h2>
+    <p class="sub">How the $22,453 was distributed across the account's two campaign themes</p>
+    <div class="bar-wrap">
+      <div class="bar"><div class="fill" style="width:100%">$22,453 spent — $53 over the $22,400 budget</div></div>
+      <div class="pace-stat">Full month · Minor overspend due to Week 1 auction variance</div>
+    </div>
+    <table>
+      <thead><tr><th>Service Line</th><th>Ad Groups</th><th class="r">Spend</th><th class="r">% of Total</th><th class="r">Clicks</th><th class="r">Conv.</th><th class="r">CPC</th><th class="r">CPL</th></tr></thead>
+      <tbody>
+        <tr class="top-row">
+          <td>Retail Partner Services</td><td><span class="tag ch2">2 ad groups</span></td>
+          <td class="mono r">$14,147</td><td class="mono r">63.0%</td><td class="mono r">1,658</td><td class="mono r">67</td><td class="mono r">$8.53</td><td class="mono r">$211</td>
+        </tr>
+        <tr>
+          <td>Marketplace Services</td><td><span class="tag ch1">4 ad groups</span></td>
+          <td class="mono r">$8,306</td><td class="mono r">37.0%</td><td class="mono r">773</td><td class="mono r">25</td><td class="mono r">$10.74</td><td class="mono r">$332</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2">Account Total</td>
+          <td class="mono r">$22,453</td><td class="mono r">100%</td><td class="mono r">2,431</td><td class="mono r">92</td><td class="mono r">$9.24</td><td class="mono r">$243</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight" style="margin-top:14px"><b>Retail Partner Services continues to lead on efficiency</b> ($211 CPL vs. $332 for Marketplace). The gap is narrowing — Marketplace was at $391 CPL in June — but there's still room to improve. August recommendation: shift 5% of Marketplace budget (~$415) to Retail Partner while Marketplace continues to mature.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">5</span>Service Line Performance</h2>
+    <p class="sub">Full breakdown — July 1–31, 2026</p>
+    <div class="camp-grid" style="margin-bottom:20px">
+      <div class="tier t2">
+        <div class="tname">🟢 Retail Partner Services</div>
+        <div class="talloc">$14,147 · 63% of spend</div>
+        <div class="trow"><span>Impressions</span><span>16,967</span></div>
+        <div class="trow"><span>Clicks</span><span>1,658</span></div>
+        <div class="trow"><span>CTR</span><span>9.77%</span></div>
+        <div class="trow"><span>CPC</span><span>$8.53</span></div>
+        <div class="trow"><span>Conversions</span><span>67</span></div>
+        <div class="trow"><span>Conv. Rate</span><span>4.04%</span></div>
+        <div class="trow"><span>CPL</span><span>$211</span></div>
+      </div>
+      <div class="tier t1">
+        <div class="tname">🔵 Marketplace Services</div>
+        <div class="talloc">$8,306 · 37% of spend</div>
+        <div class="trow"><span>Impressions</span><span>9,966</span></div>
+        <div class="trow"><span>Clicks</span><span>773</span></div>
+        <div class="trow"><span>CTR</span><span>7.76%</span></div>
+        <div class="trow"><span>CPC</span><span>$10.74</span></div>
+        <div class="trow"><span>Conversions</span><span>25</span></div>
+        <div class="trow"><span>Conv. Rate</span><span>3.23%</span></div>
+        <div class="trow"><span>CPL</span><span>$332</span></div>
+      </div>
+    </div>
+    <div class="insight good"><b>Both service lines are converting.</b> Retail Partner is the efficiency leader and warrants budget expansion. Marketplace CPL improved from $391 to $332 MoM — the negative keyword work is having a measurable impact. Continue refining in August.</div>
+
+    <h3>Full Ad Group Breakdown</h3>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Service Line</th><th>Ad Group</th><th class="r">Spend</th><th class="r">Clicks</th><th class="r">Conv.</th><th class="r">CTR</th><th class="r">CPC</th><th class="r">CPL</th></tr></thead>
+        <tbody>
+          <tr class="top-row">
+            <td><span class="tag ch2">Retail</span></td>
+            <td class="mono" style="font-size:12px">AG5 — Retail &amp; Partner Channel</td>
+            <td class="mono r">$9,213</td><td class="mono r">1,080</td><td class="mono r">43</td><td class="mono r">10.1%</td><td class="mono r">$8.53</td><td class="mono r">$214</td>
+          </tr>
+          <tr class="top-row">
+            <td><span class="tag ch2">Retail</span></td>
+            <td class="mono" style="font-size:12px">AG5b — Partner Onboarding</td>
+            <td class="mono r">$4,934</td><td class="mono r">578</td><td class="mono r">24</td><td class="mono r">9.3%</td><td class="mono r">$8.53</td><td class="mono r">$206</td>
+          </tr>
+          <tr>
+            <td><span class="tag ch1">Marketplace</span></td>
+            <td class="mono" style="font-size:12px">AG4 — Account &amp; Channel Mgmt</td>
+            <td class="mono r">$4,371</td><td class="mono r">363</td><td class="mono r">13</td><td class="mono r">7.2%</td><td class="mono r">$12.04</td><td class="mono r">$336</td>
+          </tr>
+          <tr>
+            <td><span class="tag ch1">Marketplace</span></td>
+            <td class="mono" style="font-size:12px">AG2 — Channel Entry</td>
+            <td class="mono r">$1,847</td><td class="mono r">193</td><td class="mono r">9</td><td class="mono r">8.3%</td><td class="mono r">$9.57</td><td class="mono r">$205</td>
+          </tr>
+          <tr>
+            <td><span class="tag ch1">Marketplace</span></td>
+            <td class="mono" style="font-size:12px">AG3 — Brand Management</td>
+            <td class="mono r">$943</td><td class="mono r">96</td><td class="mono r">3</td><td class="mono r">9.1%</td><td class="mono r">$9.82</td><td class="mono r">$314</td>
+          </tr>
+          <tr class="low-row">
+            <td><span class="tag ch1">Marketplace</span></td>
+            <td class="mono" style="font-size:12px">AG6 — New Seller Onboarding</td>
+            <td class="mono r">$748</td><td class="mono r">63</td><td class="mono r">0</td><td class="mono r">5.8%</td><td class="mono r">$11.87</td><td class="mono r">—</td>
+          </tr>
+          <tr class="low-row">
+            <td><span class="tag ch1">Marketplace</span></td>
+            <td class="mono" style="font-size:12px">AG6 — Channel Migration</td>
+            <td class="mono r">$397</td><td class="mono r">58</td><td class="mono r">0</td><td class="mono r">6.4%</td><td class="mono r">$6.84</td><td class="mono r">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight warn" style="margin-top:12px"><b>New Seller Onboarding and Channel Migration are generating clicks but zero conversions.</b> Both have enough click volume to be concerned — this points to a landing page or offer mismatch rather than a targeting issue. Landing page review is a priority before August Week 2.</div>
+  </div>
+
+  <!-- §7 TOP 25 SEARCH TERMS -->
+  <div class="section" id="g-searchterms">
+    <h2><span class="num">6</span>Top 25 Paid Search Terms</h2>
+    <p class="sub">Highest-spend queries — July 1–31, 2026. Sorted by spend. 🔴 rows flagged for August action.</p>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;font-size:12.5px;align-items:center">
+      <span style="color:var(--muted);font-family:var(--font-mono);font-size:11px">Match type:</span>
+      <span class="tag exact">Exact</span><span class="tag phrase">Phrase</span><span class="tag broad">Broad</span>
+      &nbsp;&nbsp;
+      <span style="color:var(--muted);font-family:var(--font-mono);font-size:11px">Quality signal:</span>
+      <span style="font-size:12px">🟢 High &nbsp;🟡 Mid &nbsp;🔴 Low</span>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Search Term</th><th>Ad Group</th><th>Match</th><th class="r">Spend</th><th class="r">Clicks</th><th class="r">Impr.</th><th class="r">CTR</th><th class="r">CPC</th><th class="r">Conv.</th><th>QS</th></tr>
+        </thead>
+        <tbody>
+          <tr class="top-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">01</td>
+            <td><b>retail fulfillment partner services</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag exact">Exact</span></td>
+            <td class="mono r">$2,071</td><td class="mono r">237</td><td class="mono r">2,214</td><td class="mono r">10.7%</td><td class="mono r">$8.74</td><td class="mono r">12</td><td>🟢</td>
+          </tr>
+          <tr class="top-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">02</td>
+            <td><b>b2b retail channel management</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$1,803</td><td class="mono r">208</td><td class="mono r">1,941</td><td class="mono r">10.7%</td><td class="mono r">$8.67</td><td class="mono r">10</td><td>🟢</td>
+          </tr>
+          <tr class="top-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">03</td>
+            <td><b>outsourced retail partner program</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$1,558</td><td class="mono r">179</td><td class="mono r">1,773</td><td class="mono r">10.1%</td><td class="mono r">$8.71</td><td class="mono r">9</td><td>🟢</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">04</td>
+            <td><b>marketplace account management agency</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag exact">Exact</span></td>
+            <td class="mono r">$1,238</td><td class="mono r">103</td><td class="mono r">1,232</td><td class="mono r">8.4%</td><td class="mono r">$12.02</td><td class="mono r">4</td><td>🟡</td>
+          </tr>
+          <tr class="top-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">05</td>
+            <td><b>retail distribution partner onboarding</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag exact">Exact</span></td>
+            <td class="mono r">$1,169</td><td class="mono r">137</td><td class="mono r">1,384</td><td class="mono r">9.9%</td><td class="mono r">$8.53</td><td class="mono r">7</td><td>🟢</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">06</td>
+            <td><b>channel entry strategy for brands</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$1,026</td><td class="mono r">107</td><td class="mono r">1,320</td><td class="mono r">8.1%</td><td class="mono r">$9.59</td><td class="mono r">5</td><td>🟡</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">07</td>
+            <td><b>3pl retail partner services</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$974</td><td class="mono r">114</td><td class="mono r">1,587</td><td class="mono r">7.2%</td><td class="mono r">$8.54</td><td class="mono r">4</td><td>🟢</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">08</td>
+            <td><b>omnichannel partner management</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$944</td><td class="mono r">78</td><td class="mono r">1,188</td><td class="mono r">6.6%</td><td class="mono r">$12.10</td><td class="mono r">3</td><td>🟡</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">09</td>
+            <td><b>acme corp retail partners</b> <span style="font-size:11px;color:var(--teal)">[branded]</span></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag exact">Exact</span></td>
+            <td class="mono r">$779</td><td class="mono r">146</td><td class="mono r">1,178</td><td class="mono r">12.4%</td><td class="mono r">$5.34</td><td class="mono r">8</td><td>🟢</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">10</td>
+            <td><b>retail channel management software</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$876</td><td class="mono r">103</td><td class="mono r">1,456</td><td class="mono r">7.1%</td><td class="mono r">$8.50</td><td class="mono r">3</td><td>🟡</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">11</td>
+            <td><b>brand marketplace account management</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag exact">Exact</span></td>
+            <td class="mono r">$807</td><td class="mono r">67</td><td class="mono r">873</td><td class="mono r">7.7%</td><td class="mono r">$12.04</td><td class="mono r">3</td><td>🟡</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">12</td>
+            <td><b>retail partner onboarding platform</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$721</td><td class="mono r">83</td><td class="mono r">986</td><td class="mono r">8.4%</td><td class="mono r">$8.69</td><td class="mono r">3</td><td>🟢</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">13</td>
+            <td><b>supply chain partner services b2b</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$584</td><td class="mono r">68</td><td class="mono r">806</td><td class="mono r">8.4%</td><td class="mono r">$8.59</td><td class="mono r">2</td><td>🟢</td>
+          </tr>
+          <tr class="low-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">14</td>
+            <td><b>marketplace channel management tools</b> <span style="font-size:11px;color:var(--red)">[flag]</span></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$648</td><td class="mono r">41</td><td class="mono r">1,233</td><td class="mono r">3.3%</td><td class="mono r">$15.80</td><td class="mono r">1</td><td>🔴</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">15</td>
+            <td><b>ecommerce marketplace management service</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$673</td><td class="mono r">56</td><td class="mono r">1,031</td><td class="mono r">5.4%</td><td class="mono r">$12.02</td><td class="mono r">2</td><td>🟡</td>
+          </tr>
+          <tr class="low-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">16</td>
+            <td><b>channel management consulting firms</b> <span style="font-size:11px;color:var(--red)">[flag]</span></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$539</td><td class="mono r">34</td><td class="mono r">1,097</td><td class="mono r">3.1%</td><td class="mono r">$15.85</td><td class="mono r">0</td><td>🔴</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">17</td>
+            <td><b>new brand retail entry services</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$503</td><td class="mono r">53</td><td class="mono r">672</td><td class="mono r">7.9%</td><td class="mono r">$9.49</td><td class="mono r">2</td><td>🟡</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">18</td>
+            <td><b>sell through retail channels outsource</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$555</td><td class="mono r">65</td><td class="mono r">929</td><td class="mono r">7.0%</td><td class="mono r">$8.54</td><td class="mono r">2</td><td>🟢</td>
+          </tr>
+          <tr class="low-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">19</td>
+            <td><b>retail partner program software platform</b> <span style="font-size:11px;color:var(--red)">[flag]</span></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$468</td><td class="mono r">31</td><td class="mono r">1,008</td><td class="mono r">3.1%</td><td class="mono r">$15.10</td><td class="mono r">0</td><td>🔴</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">20</td>
+            <td><b>brand channel compliance management</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag exact">Exact</span></td>
+            <td class="mono r">$445</td><td class="mono r">37</td><td class="mono r">516</td><td class="mono r">7.2%</td><td class="mono r">$12.03</td><td class="mono r">2</td><td>🟡</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">21</td>
+            <td><b>managed retail channel services</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$419</td><td class="mono r">49</td><td class="mono r">650</td><td class="mono r">7.5%</td><td class="mono r">$8.55</td><td class="mono r">2</td><td>🟢</td>
+          </tr>
+          <tr class="low-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">22</td>
+            <td><b>ecommerce channel strategy agency</b> <span style="font-size:11px;color:var(--red)">[flag]</span></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$394</td><td class="mono r">25</td><td class="mono r">941</td><td class="mono r">2.7%</td><td class="mono r">$15.76</td><td class="mono r">0</td><td>🔴</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">23</td>
+            <td><b>partner channel growth services</b></td>
+            <td><span class="tag ch2" style="font-size:9px">Retail</span></td>
+            <td><span class="tag phrase">Phrase</span></td>
+            <td class="mono r">$371</td><td class="mono r">43</td><td class="mono r">549</td><td class="mono r">7.8%</td><td class="mono r">$8.63</td><td class="mono r">1</td><td>🟢</td>
+          </tr>
+          <tr class="low-row">
+            <td class="mono" style="color:var(--muted);font-size:11px">24</td>
+            <td><b>marketplace vendor management solutions</b> <span style="font-size:11px;color:var(--red)">[flag]</span></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$345</td><td class="mono r">21</td><td class="mono r">852</td><td class="mono r">2.5%</td><td class="mono r">$16.43</td><td class="mono r">0</td><td>🔴</td>
+          </tr>
+          <tr>
+            <td class="mono" style="color:var(--muted);font-size:11px">25</td>
+            <td><b>how to sell through retail partners</b></td>
+            <td><span class="tag ch1" style="font-size:9px">Marketplace</span></td>
+            <td><span class="tag broad">Broad</span></td>
+            <td class="mono r">$319</td><td class="mono r">34</td><td class="mono r">537</td><td class="mono r">6.3%</td><td class="mono r">$9.38</td><td class="mono r">1</td><td>🟡</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="4">Top 25 Total</td>
+            <td class="mono r">$18,827</td><td class="mono r">1,958</td><td class="mono r">25,947</td><td class="mono r">7.5%</td><td class="mono r">$9.61</td><td class="mono r">76</td><td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+      <div class="insight good"><b>🟢 Scale these (terms 1–3, 5, 7, 9, 12–13, 18, 21, 23):</b> Exact and phrase match terms converting at $8.50–$9.00 CPC with 9–12% CTR. Raise bids 15–20% on the top 5 to capture more impression share — estimated 45–55% currently.</div>
+      <div class="insight warn"><b>🟡 Monitor (terms 4, 6, 8, 10–11, 15, 17, 20, 25):</b> Mid-range CPC terms ($9.38–$12.10) with acceptable CTR and conversion signals. Watch trend direction in August before adjusting.</div>
+      <div class="insight bad"><b>🔴 Flag for August action (terms 14, 16, 19, 22, 24):</b> Five broad-match terms spending a combined $2,394 at $15–$16 CPC with 2.5–3.3% CTR and zero conversions. Convert to phrase match where intent is valid; add as negatives where it's clearly off-ICP.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">7</span>Benchmarks</h2>
+    <p class="sub">July 2026 performance vs. Google Ads B2B search norms and June 2026</p>
+    <h3>Month-over-Month Trend</h3>
+    <table>
+      <thead><tr><th>Period</th><th class="r">Spend</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">CPC</th><th class="r">Conv.</th><th class="r">CPL</th><th class="r">Impr. Share</th></tr></thead>
+      <tbody>
+        <tr><td>June 2026</td><td class="mono r">$22,400</td><td class="mono r">1,912</td><td class="mono r">8.1%</td><td class="mono r">$11.08</td><td class="mono r">70</td><td class="mono r">$287</td><td class="mono r">31%</td></tr>
+        <tr style="background:var(--light-bg);font-weight:600"><td>July 2026 ← Current</td><td class="mono r">$22,453</td><td class="mono r">2,431</td><td class="mono r">9.03%</td><td class="mono r">$9.24</td><td class="mono r">92</td><td class="mono r">$243</td><td class="mono r">54%</td></tr>
+        <tr style="font-size:12px"><td style="color:var(--green);font-weight:600">MoM Change</td><td class="mono r" style="color:var(--muted)">+$53</td><td class="mono r" style="color:var(--green)">+27%</td><td class="mono r" style="color:var(--green)">+0.93pp</td><td class="mono r" style="color:var(--green)">-17%</td><td class="mono r" style="color:var(--green)">+31%</td><td class="mono r" style="color:var(--green)">-15%</td><td class="mono r" style="color:var(--green)">+23pp</td></tr>
+      </tbody>
+    </table>
+    <h3>Google Ads B2B Benchmarks</h3>
+    <table>
+      <thead><tr><th>Metric</th><th class="r">July Performance</th><th class="r">B2B Norm</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Blended CTR</td><td class="mono r">9.03%</td><td class="mono r">3–7% avg</td><td style="color:var(--green);font-weight:500">✅ Above benchmark</td></tr>
+        <tr><td>Blended CPC</td><td class="mono r">$9.24</td><td class="mono r">$5–$20 for B2B</td><td style="color:var(--green);font-weight:500">✅ Efficient</td></tr>
+        <tr><td>Conversion Rate</td><td class="mono r">3.79%</td><td class="mono r">2.5–4.0% B2B avg</td><td style="color:var(--green);font-weight:500">✅ Above norm</td></tr>
+        <tr><td>Search Impression Share</td><td class="mono r">54%</td><td class="mono r">60%+ (mature)</td><td style="color:var(--warn);font-weight:500">⚠️ Growing — target 65%+</td></tr>
+      </tbody>
+    </table>
+    <div class="insight good" style="margin-top:12px"><b>Strong improvement across every metric month-over-month.</b> CPL is now within target ($243 vs. $250 goal), conversion volume up 31%, impression share nearly doubled. The account is in an efficiency-led optimization phase — layering bid automation and audience segmentation in August will compound these gains.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">8</span>Recommendations — August 2026</h2>
+    <p class="sub">Prioritized plan for continued optimization</p>
+    <h3>🎯 Priority 1: Tighten the 5 flagged broad-match search terms</h3>
+    <p style="font-size:13.5px;margin-bottom:12px;line-height:1.7">Terms 14, 16, 19, 22, and 24 are collectively spending $2,394 at $15–$16 CPC with 2.5–3.3% CTR and zero conversions. Convert to phrase match where keyword intent is valid; add as negatives where intent is clearly off-ICP. Expected impact: free $1,800–$2,000 in budget to reallocate toward top-performing terms in August.</p>
+    <h3>📈 Priority 2: Increase bids on top 5 converting terms</h3>
+    <p style="font-size:13.5px;margin-bottom:12px;line-height:1.7">Terms 1–3, 5, and 9 are producing 46 of 92 total conversions at $8.53–$8.74 CPC. Estimated impression share on these terms is 45–55%. Raising bids 15–20% should capture meaningfully more volume from these highest-intent queries without raising CPL above target.</p>
+    <h3>🏗️ Priority 3: Landing page review for New Seller Onboarding and Channel Migration</h3>
+    <p style="font-size:13.5px;margin-bottom:12px;line-height:1.7">Both ad groups are generating clicks (63 and 58 respectively) but zero conversions. Click volume rules out a targeting problem — this is a landing page or offer mismatch. Audit destination pages, check for form issues, and align copy to keyword intent before August Week 2.</p>
+    <h3>🔄 Priority 4: Shift 5% of Marketplace budget to Retail Partner</h3>
+    <p style="font-size:13.5px;margin-bottom:4px;line-height:1.7">Retail Partner CPL of $211 is 36% below Marketplace's $332 CPL. Moving ~$415/mo from Marketplace to Retail Partner while Marketplace matures will improve blended CPL toward the $225–$230 range.</p>
+  </div>
+
+  <footer class="foot">
+    <p>Prepared by Impactable &nbsp;·&nbsp; impactable.com &nbsp;·&nbsp; Google Ads Report &nbsp;·&nbsp; July 2026</p>
+    <p style="margin-top:4px">Client details anonymized for demonstration purposes.</p>
+  </footer>
+</div>
+</div>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
